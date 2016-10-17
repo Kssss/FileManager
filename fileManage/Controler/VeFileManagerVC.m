@@ -104,13 +104,17 @@ CGFloat toolBarHeight = 64;
     [_fileList removeAllObjects];
     self.allfileArray = @[].mutableCopy;
     //默认加载2个pdf文件
-//    NSString * filePathStr1 = [[NSBundle mainBundle] pathForResource:@"object" ofType:@"pdf"];
+    NSString * filePathStr1 = [[NSBundle mainBundle] pathForResource:@"angle" ofType:@"jpg"];
     NSString * filePathStr2 = [[NSBundle mainBundle] pathForResource:@"555" ofType:@"xxx"];
     NSString * filePathStr3 = [[NSBundle mainBundle] pathForResource:@"11" ofType:@"docx"];
-//    VeFileObjModel *object1 = [[VeFileObjModel alloc] initWithFilePath: filePathStr1];
+    NSString * filePathStr4 = [[NSBundle mainBundle] pathForResource:@"22" ofType:@"xlsx"];
+
+    VeFileObjModel *object1 = [[VeFileObjModel alloc] initWithFilePath: filePathStr1];
     VeFileObjModel *object2 = [[VeFileObjModel alloc] initWithFilePath: filePathStr2];
     VeFileObjModel *object3 = [[VeFileObjModel alloc] initWithFilePath: filePathStr3];
-    [self.allfileArray addObjectsFromArray:@[object2,object3]];
+    VeFileObjModel *object4 = [[VeFileObjModel alloc] initWithFilePath: filePathStr4];
+
+    [self.allfileArray addObjectsFromArray:@[object1,object2,object3,object4]];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray<NSString *> *subPathsArray = [fileManager contentsOfDirectoryAtPath:HomeFilePath error: NULL];

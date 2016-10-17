@@ -28,6 +28,7 @@
 		DE2907111DB4C30F00F58FD6 /* VeFileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2906F91DB4C30F00F58FD6 /* VeFileViewCell.m */; };
 		DE2907121DB4C30F00F58FD6 /* VeFileManagerToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2906FB1DB4C30F00F58FD6 /* VeFileManagerToolBar.m */; };
 		DE2907131DB4C30F00F58FD6 /* VeUnOpenFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2906FD1DB4C30F00F58FD6 /* VeUnOpenFileView.m */; };
+		DE2907151DB4CF7100F58FD6 /* angle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE2907141DB4CF7100F58FD6 /* angle.jpg */; };
 		DE5F25CA1DAF3FC100F5B65D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5F25C91DAF3FC100F5B65D /* main.m */; };
 		DE5F25CD1DAF3FC100F5B65D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5F25CC1DAF3FC100F5B65D /* AppDelegate.m */; };
 		DE5F25D31DAF3FC100F5B65D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE5F25D11DAF3FC100F5B65D /* Main.storyboard */; };
@@ -99,6 +100,7 @@
 		DE2906FB1DB4C30F00F58FD6 /* VeFileManagerToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeFileManagerToolBar.m; sourceTree = "<group>"; };
 		DE2906FC1DB4C30F00F58FD6 /* VeUnOpenFileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeUnOpenFileView.h; sourceTree = "<group>"; };
 		DE2906FD1DB4C30F00F58FD6 /* VeUnOpenFileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeUnOpenFileView.m; sourceTree = "<group>"; };
+		DE2907141DB4CF7100F58FD6 /* angle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = angle.jpg; sourceTree = "<group>"; };
 		DE5F25C51DAF3FC100F5B65D /* fileManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fileManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5F25C91DAF3FC100F5B65D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DE5F25CB1DAF3FC100F5B65D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		DE2906ED1DB4C30F00F58FD6 /* TestFile */ = {
 			isa = PBXGroup;
 			children = (
+				DE2907141DB4CF7100F58FD6 /* angle.jpg */,
 				DE2906EE1DB4C30F00F58FD6 /* 11.docx */,
 				DE2906EF1DB4C30F00F58FD6 /* 22.xlsx */,
 				DE2906F01DB4C30F00F58FD6 /* 555.xxx */,
@@ -402,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE29070D1DB4C30F00F58FD6 /* 555.xxx in Resources */,
+				DE2907151DB4CF7100F58FD6 /* angle.jpg in Resources */,
 				DE5F25D81DAF3FC100F5B65D /* LaunchScreen.storyboard in Resources */,
 				DE29070B1DB4C30F00F58FD6 /* 11.docx in Resources */,
 				DE29070C1DB4C30F00F58FD6 /* 22.xlsx in Resources */,

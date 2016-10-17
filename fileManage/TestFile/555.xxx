@@ -1,0 +1,25 @@
+	登陆界面做了什么？？？
+
+
+1	删除未读消息表      [[TYHBaseDBManager shareBaseDBManager] deleteAllSession];
+2	在登录界面上不进行重连
+    [TYHSocketManagerTool shareSocketManager].loginned = NO;
+3	选取登陆服务器功能
+4	给authModel赋值 
+	 NSData *Datamodel = [def objectForKey:AccoutMsgModel];
+        AuthModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:Datamodel];
+        AuthModel *shardModel = [AuthModel sharedInstance];
+        
+        shardModel.token = model.token;
+        shardModel.loginSource = model.loginSource;
+        shardModel.lastLoginSource = model.lastLoginSource;
+        shardModel.userInfo.headPortraitUrl = model.userInfo.headPortraitUrl;
+        shardModel.userInfo.userId = model.userInfo.userId;
+        shardModel.userInfo.userName = model.userInfo.userName;
+        shardModel.userInfo.nickName = model.userInfo.nickName;
+        shardModel.lastLoginTime = model.lastLoginTime;
+        shardModel.loginTime = model.loginTime;
+5	获取一个新的token
+6	重新赋值给authModel 单例模型
+7	登录成功后创建数据库
+    [[TYHBaseDatabaseAPI shareBaseDatabase] createDefaultTable];

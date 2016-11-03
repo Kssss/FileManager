@@ -7,15 +7,12 @@
 //
 
 //文件默认存储的路径
-//#define HomeFilePath    （[NSString stringWithFormat:@"%@/FilePath", [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]])
-
 #define HomeFilePath [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"CJFileCache1"]
 
 ///屏幕高度/宽度
 #define CJScreenWidth        [UIScreen mainScreen].bounds.size.width
 #define CJScreenHeight       [UIScreen mainScreen].bounds.size.height
 #import "CJFileManagerVC.h"
-//#import "CJSession.h"
 #import "CJFileObjModel.h"
 #import "VeFileViewCell.h"
 #import "VeFileManagerToolBar.h"
@@ -32,8 +29,8 @@ CGFloat toolBarHeight = 49;
 @property (strong, nonatomic) VeFileManagerToolBar *assetGridToolBar;
 @property (strong, nonatomic) NSMutableArray *selectedItems;//记录选中的cell的模型
 @property (nonatomic,strong) UITableView *tabvlew;
-@property (nonatomic,strong) NSMutableArray *fileList;
-@property (nonatomic,strong) NSMutableArray *allfileArray;
+@property (nonatomic,strong) NSMutableArray *dataSource;
+@property (nonatomic,strong) NSMutableArray *originFileArray;//
 @property (nonatomic,strong) UIDocumentInteractionController *documentInteraction;
 @property (nonatomic,strong) NSArray *depatmentArray;
 @end
@@ -48,17 +45,16 @@ CGFloat toolBarHeight = 49;
     NSLog(@"---%@",HomeFilePath);
     self.title = (@"我的文件");
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setClickPartmentView];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self loadData];
     [self tabvlew];
+    [self setClickPartmentView];
     [self setupToolbar];
 }
 - (NSArray *)depatmentArray
 {
     if (_depatmentArray == nil) {
         _depatmentArray = @[@"全部",@"音乐",@"文档",@"应用",@"其他"];
-        
     }
      return  _depatmentArray;
 }
@@ -86,7 +82,6 @@ CGFloat toolBarHeight = 49;
 }
 - (void)setClickPartmentView
 {
-    
     [self departmentView];
 }
 - (NSMutableArray *)selectedItems
@@ -109,8 +104,8 @@ CGFloat toolBarHeight = 49;
 }
 #pragma mark - loadData
 - (void)loadData{
-    [_fileList removeAllObjects];
-    self.allfileArray = @[].mutableCopy;
+    [_dataSource removeAllObjects];
+    self.originFileArray = @[].mutableCopy;
     self.view.backgroundColor = [UIColor whiteColor];
     //默认加入几个文件
     NSString *path1 = [[NSBundle mainBundle] pathForResource:@"宋冬野 - 董小姐" ofType:@"mp3"];
@@ -123,15 +118,15 @@ CGFloat toolBarHeight = 49;
     CJFileObjModel *mode3 = [[CJFileObjModel alloc] initWithFilePath:path3];
     CJFileObjModel *mode4 = [[CJFileObjModel alloc] initWithFilePath:path4];
 
-    [self.allfileArray addObjectsFromArray:@[mode1,mode2,mode3,mode4]];
+    [self.originFileArray addObjectsFromArray:@[mode1,mode2,mode3,mode4]];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray<NSString *> *subPathsArray = [fileManager contentsOfDirectoryAtPath:HomeFilePath error: NULL];
     for(NSString *str in subPathsArray){
         CJFileObjModel *object = [[CJFileObjModel alloc] initWithFilePath: [NSString stringWithFormat:@"%@/%@",HomeFilePath, str]];
-        [self.allfileArray addObject: object];
+        [self.originFileArray addObject: object];
     }
-    self.fileList = self.allfileArray.mutableCopy;
+    self.dataSource = self.originFileArray.mutableCopy;
     [self.tabvlew reloadData];
 }
 #pragma mark - Table view data source
@@ -140,7 +135,7 @@ CGFloat toolBarHeight = 49;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_fileList count];
+    return [_dataSource count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -152,7 +147,7 @@ CGFloat toolBarHeight = 49;
     if (cell == nil) {
          cell = [[VeFileViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"fileCell"];
     }
-    CJFileObjModel *actualFile = [_fileList objectAtIndex:indexPath.row];
+    CJFileObjModel *actualFile = [_dataSource objectAtIndex:indexPath.row];
     cell.model = actualFile;
     __weak typeof(self) weakSelf = self;
     cell.Clickblock = ^(CJFileObjModel *model,UIButton *btn){
@@ -183,7 +178,7 @@ CGFloat toolBarHeight = 49;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    CJFileObjModel *actualFile = [_fileList objectAtIndex:indexPath.row];
+    CJFileObjModel *actualFile = [_dataSource objectAtIndex:indexPath.row];
     NSString *cachePath =actualFile.filePath;
     NSLog(@"调用文件查看控制器%@---type %zd, %@",actualFile.name,actualFile.fileType,cachePath);
     CJFlieLookUpVC *vc = [[CJFlieLookUpVC alloc] initWithFileModel:actualFile];
@@ -198,9 +193,9 @@ CGFloat toolBarHeight = 49;
             case 0:
             {
                 NSLog(@"btn.tag%zd",index);
-                self.fileList = self.allfileArray.mutableCopy;
-                [self.fileList enumerateObjectsUsingBlock:^(CJFileObjModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    NSLog(@"obj----%zd",self.fileList);
+                self.dataSource = self.originFileArray.mutableCopy;
+                [self.dataSource enumerateObjectsUsingBlock:^(CJFileObjModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    NSLog(@"obj----%zd",self.dataSource);
                 }];
                 [self.tabvlew reloadData];
                 
@@ -209,10 +204,10 @@ CGFloat toolBarHeight = 49;
             case 1:
             {
                 NSLog(@"btn.tag%zd",index);
-                [self.fileList removeAllObjects];
-                for (CJFileObjModel * model in self.allfileArray) {
+                [self.dataSource removeAllObjects];
+                for (CJFileObjModel * model in self.originFileArray) {
                 if (model.fileType == MKFileTypeAudioVidio) {
-                        [self.fileList addObject:model];
+                        [self.dataSource addObject:model];
                     }
                 }
                 [self.tabvlew reloadData];
@@ -221,10 +216,10 @@ CGFloat toolBarHeight = 49;
             case 2:
             {
                 NSLog(@"btn.tag%zd",index);
-                [self.fileList removeAllObjects];
-                for (CJFileObjModel * model in self.allfileArray) {
+                [self.dataSource removeAllObjects];
+                for (CJFileObjModel * model in self.originFileArray) {
                     if (model.fileType == MKFileTypeTxt) {
-                        [self.fileList addObject:model];
+                        [self.dataSource addObject:model];
                     }
                 }
                 [self.tabvlew reloadData];
@@ -233,10 +228,10 @@ CGFloat toolBarHeight = 49;
             case 3:
             {
                 NSLog(@"btn.tag%zd",index);
-                [self.fileList removeAllObjects];
-                for (CJFileObjModel * model in self.allfileArray) {
+                [self.dataSource removeAllObjects];
+                for (CJFileObjModel * model in self.originFileArray) {
                     if (model.fileType == MKFileTypeApplication) {
-                        [self.fileList addObject:model];
+                        [self.dataSource addObject:model];
                     }
                 }
                 [self.tabvlew reloadData];
@@ -245,10 +240,10 @@ CGFloat toolBarHeight = 49;
             case 4:
             {
                 NSLog(@"btn.tag%zd",index);
-                [self.fileList removeAllObjects];
-                for (CJFileObjModel * model in self.allfileArray) {
+                [self.dataSource removeAllObjects];
+                for (CJFileObjModel * model in self.originFileArray) {
                     if (model.fileType == MKFileTypeUnknown) {
-                        [self.fileList addObject:model];
+                        [self.dataSource addObject:model];
                     }
                 }
                 [self.tabvlew reloadData];
@@ -262,7 +257,7 @@ CGFloat toolBarHeight = 49;
 
 - (void)setOrigArray{
     for (CJFileObjModel *model  in self.selectedItems) {
-        [self.allfileArray enumerateObjectsUsingBlock:^(CJFileObjModel *origModel, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.originFileArray enumerateObjectsUsingBlock:^(CJFileObjModel *origModel, NSUInteger idx, BOOL * _Nonnull stop) {
             if ([origModel.filePath isEqualToString:model.filePath]) {
                 origModel.select = model.select;
                 NSLog(@"被选中的item 是：%@",origModel.filePath);
@@ -271,10 +266,7 @@ CGFloat toolBarHeight = 49;
     }
 }
 #pragma mark --TYHInternalAssetGridToolBarDelegate
-- (void)didClickPreviewInAssetGridToolBar:(VeFileManagerToolBar *)internalAssetGridToolBar{
-    NSLog(@"----");
-    
-}
+
 - (void)didClickSenderButtonInAssetGridToolBar:(VeFileManagerToolBar *)internalAssetGridToolBar
 {
     

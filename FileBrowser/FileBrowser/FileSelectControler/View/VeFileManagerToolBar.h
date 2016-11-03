@@ -14,7 +14,6 @@
 
 @required
 
-- (void)didClickPreviewInAssetGridToolBar:(VeFileManagerToolBar *)internalAssetGridToolBar;
 - (void)didClickSenderButtonInAssetGridToolBar:(VeFileManagerToolBar *)internalAssetGridToolBar;
 
 @end

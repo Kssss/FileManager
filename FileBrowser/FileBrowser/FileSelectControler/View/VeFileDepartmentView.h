@@ -14,14 +14,14 @@
 
 @end
 
-///总部门视图(联系人上导航视图)
+
 @interface VeFileDepartmentView : UIScrollView
 
-@property (strong, nonatomic) NSArray *departmentArr;//!< 部门对象集合
+@property (strong, nonatomic) NSArray *departmentArr;
 
 @property (assign, nonatomic) id<CJDepartmentViewDelegate> cj_delegate;
 
-/** 初始化总部门视图 */
+
 - (instancetype)initWithParts:(NSArray *)partArr;
 - (instancetype)initWithParts:(NSArray *)partArr withFrame:(CGRect)frame;
 

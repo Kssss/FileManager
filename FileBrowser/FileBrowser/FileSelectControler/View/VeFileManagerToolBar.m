@@ -14,12 +14,9 @@
 #define color01a  [UIColor colorWithRed:0.004 green:0.651 blue:0.996 alpha:1.000]
 
 @interface VeFileManagerToolBar ()
-
-//@property (weak, nonatomic) UIButton *originalButton;
 @property (weak, nonatomic) UIButton *senderButton;
 @property (weak, nonatomic) UILabel *originalLabel;
 @property (assign, nonatomic) NSInteger bytes;
-
 @end
 
 @implementation VeFileManagerToolBar
@@ -29,7 +26,6 @@
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor whiteColor];
         self.selectedItems = @[].mutableCopy;
-//        [self originalButton];
         [self originalLabel];
         [self senderButton];
     }
@@ -70,17 +66,9 @@
 }
 
 #pragma mark - allButton Action
-- (void)clickPreviewButton:(UIButton *)button
-{
-    if ([self.delegate respondsToSelector:@selector(didClickPreviewInAssetGridToolBar:)]) {
-        [self.delegate didClickPreviewInAssetGridToolBar:self];
-    }
-}
-
 - (void)clickOriginalButton:(UIButton *)button
 {
     button.selected = !button.isSelected;
-//    self.originalLabel.hidden = !button.isSelected;
     [self calculateAllselectedItemsBytes];
 }
 
@@ -96,15 +84,9 @@
      _selectedItems = selectedItems;
     
     // 按钮能否点击
-//    self.previewButton.enabled = selectedItems.count > 0 ? YES : NO;
-//    self.originalButton.userInteractionEnabled = selectedItems.count > 0 ? YES : NO;
     self.senderButton.enabled = selectedItems.count > 0 ? YES : NO;
-    
     // 按钮是否显示
-//    if (selectedItems.count == 0) self.originalButton.selected = NO;
     if (selectedItems.count > 0) [self.senderButton setTitle:[NSString stringWithFormat:@"%@(%ld)", @"发送", selectedItems.count] forState:UIControlStateNormal];
-//    if (selectedItems.count == 0) self.originalLabel.hidden = YES;
-    
     // 显示大小
     [self calculateAllselectedItemsBytes];
 }
@@ -147,12 +129,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-
-//    [_originalButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self).offset(10);
-//        make.width.equalTo(@(90));
-//        make.centerY.equalTo(self);
-//    }];
     
     [_originalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self);

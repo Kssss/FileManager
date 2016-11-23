@@ -21,18 +21,17 @@
 #import "UIView+CJToast.h"
 
 CGFloat departmentH = 48;
-CGFloat departmentY = 0;
 CGFloat toolBarHeight = 49;
 
 @interface CJFileManagerVC ()<UITableViewDelegate,UITableViewDataSource,TYHInternalAssetGridToolBarDelegate,CJDepartmentViewDelegate>
-@property (strong, nonatomic) VeFileDepartmentView *departmentView;
-@property (strong, nonatomic) VeFileManagerToolBar *assetGridToolBar;
+@property (strong, nonatomic) VeFileDepartmentView *departmentView;//文件的类目视图
+@property (strong, nonatomic) VeFileManagerToolBar *assetGridToolBar;//底部发送的工具条
 @property (strong, nonatomic) NSMutableArray *selectedItems;//记录选中的cell的模型
 @property (nonatomic,strong) UITableView *tabvlew;
 @property (nonatomic,strong) NSMutableArray *dataSource;
-@property (nonatomic,strong) NSMutableArray *originFileArray;//
+@property (nonatomic,strong) NSMutableArray *originFileArray;
 @property (nonatomic,strong) UIDocumentInteractionController *documentInteraction;
-@property (nonatomic,strong) NSArray *depatmentArray;
+@property (nonatomic,strong) NSArray *depatmentArray;//文件分类数组
 @end
 
 @implementation CJFileManagerVC
@@ -42,9 +41,10 @@ CGFloat toolBarHeight = 49;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"---%@",HomeFilePath);
+    NSLog(@"文件默认存储的路径---%@",HomeFilePath);
     self.title = (@"我的文件");
     self.view.backgroundColor = [UIColor whiteColor];
+    //关闭系统自动偏移64点
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self loadData];
     [self tabvlew];
@@ -61,7 +61,7 @@ CGFloat toolBarHeight = 49;
 - (UITableView *)tabvlew
 {
     if (_tabvlew == nil) {
-        CGRect frame = CGRectMake(0,departmentY + departmentH + 10 + 64, CJScreenWidth, CJScreenHeight - departmentY - toolBarHeight - departmentH - 10);
+        CGRect frame = CGRectMake(0, departmentH + 10 + 64, CJScreenWidth, CJScreenHeight  - toolBarHeight - departmentH - 10);
         _tabvlew = [[UITableView alloc]   initWithFrame:frame style:UITableViewStylePlain];
         _tabvlew.tableFooterView = [[UIView alloc] init];
         _tabvlew.delegate = self;
@@ -95,7 +95,7 @@ CGFloat toolBarHeight = 49;
 - (VeFileDepartmentView *)departmentView
 {
     if (_departmentView == nil) {
-        CGRect frame = CGRectMake(0, departmentY + 64, CJScreenWidth, departmentH);
+        CGRect frame = CGRectMake(0, 64, CJScreenWidth, departmentH);
         _departmentView = [[VeFileDepartmentView alloc] initWithParts:self.depatmentArray withFrame:frame];
         _departmentView.cj_delegate = self;
         [self.view addSubview:_departmentView];
@@ -121,6 +121,7 @@ CGFloat toolBarHeight = 49;
     [self.originFileArray addObjectsFromArray:@[mode1,mode2,mode3,mode4]];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
+    //遍历HomeFilePath文件夹下的子文件
     NSArray<NSString *> *subPathsArray = [fileManager contentsOfDirectoryAtPath:HomeFilePath error: NULL];
     for(NSString *str in subPathsArray){
         CJFileObjModel *object = [[CJFileObjModel alloc] initWithFilePath: [NSString stringWithFormat:@"%@/%@",HomeFilePath, str]];
@@ -186,7 +187,7 @@ CGFloat toolBarHeight = 49;
 }
 
 #pragma mark --CJDepartmentViewDelegate
-
+//根据点击进行数据过滤
 - (void)didScrollToIndex:(NSInteger)index{
     [self setOrigArray];
         switch (index) {
@@ -254,7 +255,7 @@ CGFloat toolBarHeight = 49;
                 break;
         }
 }
-
+//将已经记录选中的文件，保存
 - (void)setOrigArray{
     for (CJFileObjModel *model  in self.selectedItems) {
         [self.originFileArray enumerateObjectsUsingBlock:^(CJFileObjModel *origModel, NSUInteger idx, BOOL * _Nonnull stop) {

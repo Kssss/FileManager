@@ -40,9 +40,11 @@
     __weak typeof(self) weakSelf = self;
     if (_actualmodel.filePath && [manger fileExistsAtPath:_actualmodel.filePath]) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            //使用系统自带工具打开
             [weakSelf loadData];
         });
     }else{
+        //显示下载文件视图
         [self showDownloadFile];
     }
    
@@ -127,45 +129,9 @@
     return self.view;
 
 }
-
-// Preview presented/dismissed on document.  Use to set up any HI underneath.
-- (void)documentInteractionControllerWillBeginPreview:(UIDocumentInteractionController *)controller
-{
-    
-}
 - (void)documentInteractionControllerDidEndPreview:(UIDocumentInteractionController *)controller
 {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-// Options menu presented/dismissed on document.  Use to set up any HI underneath.
-- (void)documentInteractionControllerWillPresentOptionsMenu:(UIDocumentInteractionController *)controller
-{
-    
-}
-- (void)documentInteractionControllerDidDismissOptionsMenu:(UIDocumentInteractionController *)controller
-{
-    
-}
-
-// Open in menu presented/dismissed on document.  Use to set up any HI underneath.
-- (void)documentInteractionControllerWillPresentOpenInMenu:(UIDocumentInteractionController *)controller
-{
-    
-}
-- (void)documentInteractionControllerDidDismissOpenInMenu:(UIDocumentInteractionController *)controller
-{
-    
-}
-
-// Synchronous.  May be called when inside preview.  Usually followed by app termination.  Can use willBegin... to set annotation.
-- (void)documentInteractionController:(UIDocumentInteractionController *)controller willBeginSendingToApplication:(nullable NSString *)application
-{
-    
-}
-- (void)documentInteractionController:(UIDocumentInteractionController *)controller didEndSendingToApplication:(nullable NSString *)application
-{
-    
 }
 
 

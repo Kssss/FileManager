@@ -280,6 +280,7 @@
 		DE25F2AB1DC739A000ED790D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = Ve;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Vieene;
 				TargetAttributes = {

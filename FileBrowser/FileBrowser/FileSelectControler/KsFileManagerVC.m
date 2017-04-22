@@ -37,6 +37,7 @@ CGFloat toolBarHeight = 49;
 @implementation KsFileManagerVC
 + (void)initialize
 {
+    //创建管理目录
     [self getHomeFilePath];
 }
 - (void)viewDidLoad {
@@ -107,7 +108,7 @@ CGFloat toolBarHeight = 49;
     [_dataSource removeAllObjects];
     self.originFileArray = @[].mutableCopy;
     self.view.backgroundColor = [UIColor whiteColor];
-    //默认加入几个文件
+    //默认加入几个文件（演示作用）
     NSString *path1 = [[NSBundle mainBundle] pathForResource:@"宋冬野 - 董小姐" ofType:@"mp3"];
     NSString *path2 = [[NSBundle mainBundle] pathForResource:@"IMG_4143" ofType:@"PNG"];
     NSString *path3 = [[NSBundle mainBundle] pathForResource:@"angle" ofType:@"jpg"];
@@ -151,6 +152,7 @@ CGFloat toolBarHeight = 49;
     KsFileObjModel *actualFile = [_dataSource objectAtIndex:indexPath.row];
     cell.model = actualFile;
     __weak typeof(self) weakSelf = self;
+    //设置cell的选中事件
     cell.Clickblock = ^(KsFileObjModel *model,UIButton *btn){
         if (weakSelf.selectedItems.count>=5 && btn.selected) {
             btn.selected =  NO;
@@ -266,8 +268,8 @@ CGFloat toolBarHeight = 49;
         }];
     }
 }
-#pragma mark --TYHInternalAssetGridToolBarDelegate
 
+#pragma mark --TYHInternalAssetGridToolBarDelegate
 - (void)didClickSenderButtonInAssetGridToolBar:(KsFileManagerToolBar *)internalAssetGridToolBar
 {
     

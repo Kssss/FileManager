@@ -9,6 +9,8 @@
 //文件管理器默认管理的路径
 #define HomeFilePath [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"CJFileCache1"]
 
+//5MB
+#define FileMaxSize 5000000
 ///屏幕高度/宽度
 #define CJScreenWidth        [UIScreen mainScreen].bounds.size.width
 #define CJScreenHeight       [UIScreen mainScreen].bounds.size.height
@@ -42,23 +44,30 @@ CGFloat toolBarHeight = 49;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"文件默认存储的路径---%@",HomeFilePath);
+    
     self.title = (@"我的文件");
     self.view.backgroundColor = [UIColor whiteColor];
     //关闭系统自动偏移64点
     self.automaticallyAdjustsScrollViewInsets = NO;
+    //加载数据源
     [self loadData];
+    //加载tabView
     [self tabvlew];
-    [self setClickPartmentView];
-    [self setupToolbar];
+    //加载文件内容分组视图
+    [self departmentView];
+    //加载工具条
+    [self assetGridToolBar];
+    
+    NSLog(@"文件默认存储的路径---%@",HomeFilePath);
 }
 - (NSArray *)depatmentArray
 {
     if (_depatmentArray == nil) {
         _depatmentArray = @[@"全部",@"音乐",@"文档",@"应用",@"其他"];
     }
-     return  _depatmentArray;
+    return  _depatmentArray;
 }
+#pragma mark - lazy
 - (UITableView *)tabvlew
 {
     if (_tabvlew == nil) {
@@ -69,21 +78,21 @@ CGFloat toolBarHeight = 49;
         _tabvlew.dataSource = self;
         _tabvlew.bounces = NO;
         [self.view addSubview:self.tabvlew];
-
+        
     }
     return _tabvlew;
 }
-- (void)setupToolbar
+- (KsFileManagerToolBar *)assetGridToolBar
 {
-    KsFileManagerToolBar *toolbar = [[KsFileManagerToolBar alloc] initWithFrame:CGRectMake(0, CJScreenHeight - toolBarHeight, CJScreenWidth, toolBarHeight)];
-    toolbar.delegate = self;
-    _assetGridToolBar = toolbar;
-    _assetGridToolBar.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:_assetGridToolBar];
-}
-- (void)setClickPartmentView
-{
-    [self departmentView];
+    if (_assetGridToolBar == nil) {
+        KsFileManagerToolBar *toolbar = [[KsFileManagerToolBar alloc] initWithFrame:CGRectMake(0, CJScreenHeight - toolBarHeight, CJScreenWidth, toolBarHeight)];
+        toolbar.delegate = self;
+        _assetGridToolBar = toolbar;
+        _assetGridToolBar.backgroundColor = [UIColor lightGrayColor];
+        [self.view addSubview:_assetGridToolBar];
+        
+    }
+    return _assetGridToolBar;
 }
 - (NSMutableArray *)selectedItems
 {
@@ -103,7 +112,7 @@ CGFloat toolBarHeight = 49;
     }
     return _departmentView;
 }
-#pragma mark - loadData
+#pragma mark - 加载数据
 - (void)loadData{
     [_dataSource removeAllObjects];
     self.originFileArray = @[].mutableCopy;
@@ -113,12 +122,12 @@ CGFloat toolBarHeight = 49;
     NSString *path2 = [[NSBundle mainBundle] pathForResource:@"IMG_4143" ofType:@"PNG"];
     NSString *path3 = [[NSBundle mainBundle] pathForResource:@"angle" ofType:@"jpg"];
     NSString *path4 = [[NSBundle mainBundle] pathForResource:@"he is a pirate" ofType:@"mp3"];
-
+    
     KsFileObjModel *mode1 = [[KsFileObjModel alloc] initWithFilePath:path1];
     KsFileObjModel *mode2 = [[KsFileObjModel alloc] initWithFilePath:path2];
     KsFileObjModel *mode3 = [[KsFileObjModel alloc] initWithFilePath:path3];
     KsFileObjModel *mode4 = [[KsFileObjModel alloc] initWithFilePath:path4];
-
+    
     [self.originFileArray addObjectsFromArray:@[mode1,mode2,mode3,mode4]];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -147,7 +156,7 @@ CGFloat toolBarHeight = 49;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     KsFileViewCell *cell = (KsFileViewCell *)[tableView dequeueReusableCellWithIdentifier:@"fileCell"];
     if (cell == nil) {
-         cell = [[KsFileViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"fileCell"];
+        cell = [[KsFileViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"fileCell"];
     }
     KsFileObjModel *actualFile = [_dataSource objectAtIndex:indexPath.row];
     cell.model = actualFile;
@@ -188,74 +197,74 @@ CGFloat toolBarHeight = 49;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-#pragma mark --CJDepartmentViewDelegate
+#pragma mark --KsDepartmentViewDelegate
 //根据点击进行数据过滤
 - (void)didScrollToIndex:(NSInteger)index{
     [self setOrigArray];
-        switch (index) {
-            case 0:
-            {
-                NSLog(@"btn.tag%zd",index);
-                self.dataSource = self.originFileArray.mutableCopy;
-                [self.dataSource enumerateObjectsUsingBlock:^(KsFileObjModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    NSLog(@"obj----%zd",self.dataSource);
-                }];
-                [self.tabvlew reloadData];
-                
-            }
-                break;
-            case 1:
-            {
-                NSLog(@"btn.tag%zd",index);
-                [self.dataSource removeAllObjects];
-                for (KsFileObjModel * model in self.originFileArray) {
-                if (model.fileType == MKFileTypeAudioVidio) {
-                        [self.dataSource addObject:model];
-                    }
-                }
-                [self.tabvlew reloadData];
-            }
-                break;
-            case 2:
-            {
-                NSLog(@"btn.tag%zd",index);
-                [self.dataSource removeAllObjects];
-                for (KsFileObjModel * model in self.originFileArray) {
-                    if (model.fileType == MKFileTypeTxt) {
-                        [self.dataSource addObject:model];
-                    }
-                }
-                [self.tabvlew reloadData];
-            }
-                break;
-            case 3:
-            {
-                NSLog(@"btn.tag%zd",index);
-                [self.dataSource removeAllObjects];
-                for (KsFileObjModel * model in self.originFileArray) {
-                    if (model.fileType == MKFileTypeApplication) {
-                        [self.dataSource addObject:model];
-                    }
-                }
-                [self.tabvlew reloadData];
-            }
-                break;
-            case 4:
-            {
-                NSLog(@"btn.tag%zd",index);
-                [self.dataSource removeAllObjects];
-                for (KsFileObjModel * model in self.originFileArray) {
-                    if (model.fileType == MKFileTypeUnknown) {
-                        [self.dataSource addObject:model];
-                    }
-                }
-                [self.tabvlew reloadData];
-                
-            }break;
-            default:
-                NSLog(@"btn.tag%zd",index);
-                break;
+    switch (index) {
+        case 0:
+        {
+            NSLog(@"btn.tag%zd",index);
+            self.dataSource = self.originFileArray.mutableCopy;
+            [self.dataSource enumerateObjectsUsingBlock:^(KsFileObjModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSLog(@"obj----%zd",self.dataSource);
+            }];
+            [self.tabvlew reloadData];
+            
         }
+            break;
+        case 1:
+        {
+            NSLog(@"btn.tag%zd",index);
+            [self.dataSource removeAllObjects];
+            for (KsFileObjModel * model in self.originFileArray) {
+                if (model.fileType == MKFileTypeAudioVidio) {
+                    [self.dataSource addObject:model];
+                }
+            }
+            [self.tabvlew reloadData];
+        }
+            break;
+        case 2:
+        {
+            NSLog(@"btn.tag%zd",index);
+            [self.dataSource removeAllObjects];
+            for (KsFileObjModel * model in self.originFileArray) {
+                if (model.fileType == MKFileTypeTxt) {
+                    [self.dataSource addObject:model];
+                }
+            }
+            [self.tabvlew reloadData];
+        }
+            break;
+        case 3:
+        {
+            NSLog(@"btn.tag%zd",index);
+            [self.dataSource removeAllObjects];
+            for (KsFileObjModel * model in self.originFileArray) {
+                if (model.fileType == MKFileTypeApplication) {
+                    [self.dataSource addObject:model];
+                }
+            }
+            [self.tabvlew reloadData];
+        }
+            break;
+        case 4:
+        {
+            NSLog(@"btn.tag%zd",index);
+            [self.dataSource removeAllObjects];
+            for (KsFileObjModel * model in self.originFileArray) {
+                if (model.fileType == MKFileTypeUnknown) {
+                    [self.dataSource addObject:model];
+                }
+            }
+            [self.tabvlew reloadData];
+            
+        }break;
+        default:
+            NSLog(@"btn.tag%zd",index);
+            break;
+    }
 }
 //将已经记录选中的文件，保存
 - (void)setOrigArray{
@@ -269,17 +278,19 @@ CGFloat toolBarHeight = 49;
     }
 }
 
-#pragma mark --TYHInternalAssetGridToolBarDelegate
+#pragma mark --KsInternalAssetGridToolBarDelegate
 - (void)didClickSenderButtonInAssetGridToolBar:(KsFileManagerToolBar *)internalAssetGridToolBar
 {
     
     NSLog(@" 发送文件 ----%@",self.selectedItems);
     [self dismissViewControllerAnimated:YES completion:nil];
-
+    
     if ([self.fileSelectVcDelegate respondsToSelector:@selector(fileViewControlerSelected:)]) {
         [self.fileSelectVcDelegate fileViewControlerSelected:self.selectedItems];
     }
 }
+
+
 
 + (void)getHomeFilePath
 {
@@ -290,9 +301,13 @@ CGFloat toolBarHeight = 49;
                                                         error:nil];
     }
 }
+
+/**
+ 检查文件的大小
+ */
 - (BOOL )checkFileSize:(KsFileObjModel *)model
 {
-    if (model.fileSizefloat >= 5000000) {
+    if (model.fileSizefloat >= FileMaxSize ) {
         return NO;
     }
     return YES;

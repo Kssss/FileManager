@@ -6,8 +6,8 @@
 //  Copyright © 2015年 hans. All rights reserved.
 //
 
-#import "HSSessionModel.h"
+#import "KsSessionModel.h"
 
-@implementation HSSessionModel
+@implementation KsSessionModel
 
 @end

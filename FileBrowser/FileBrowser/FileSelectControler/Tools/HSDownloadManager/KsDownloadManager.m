@@ -21,10 +21,10 @@
 // 存储文件总长度的文件路径（caches）
 #define HSTotalLengthFullpath [HSCachesDirectory2 stringByAppendingPathComponent:@"totalLength.plist"]
 
-#import "HSDownloadManager.h"
+#import "KsDownloadManager.h"
 #import "NSString+Hash.h"
 
-@interface HSDownloadManager()<NSCopying, NSURLSessionDelegate>
+@interface KsDownloadManager()<NSCopying, NSURLSessionDelegate>
 
 /** 保存所有任务(注：用下载地址md5后作为key) */
 @property (nonatomic, strong) NSMutableDictionary *tasks;
@@ -32,7 +32,7 @@
 @property (nonatomic, strong) NSMutableDictionary *sessionModels;
 @end
 
-@implementation HSDownloadManager
+@implementation KsDownloadManager
 
 - (NSMutableDictionary *)tasks
 {
@@ -51,7 +51,7 @@
 }
 
 
-static HSDownloadManager *_downloadManager;
+static KsDownloadManager *_downloadManager;
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone
 {
@@ -132,7 +132,7 @@ static HSDownloadManager *_downloadManager;
     // 保存任务
     [self.tasks setValue:task forKey:HSFileName(url)];
 
-    HSSessionModel *sessionModel = [[HSSessionModel alloc] init];
+    KsSessionModel *sessionModel = [[KsSessionModel alloc] init];
     sessionModel.url = url;
     sessionModel.progressBlock = progressBlock;
     sessionModel.stateBlock = stateBlock;
@@ -186,9 +186,9 @@ static HSDownloadManager *_downloadManager;
 /**
  *  根据url获取对应的下载信息模型
  */
-- (HSSessionModel *)getSessionModel:(NSUInteger)taskIdentifier
+- (KsSessionModel *)getSessionModel:(NSUInteger)taskIdentifier
 {
-    return (HSSessionModel *)[self.sessionModels valueForKey:@(taskIdentifier).stringValue];
+    return (KsSessionModel *)[self.sessionModels valueForKey:@(taskIdentifier).stringValue];
 }
 
 /**
@@ -256,7 +256,7 @@ static HSDownloadManager *_downloadManager;
         [[self.tasks allValues] makeObjectsPerformSelector:@selector(cancel)];
         [self.tasks removeAllObjects];
         
-        for (HSSessionModel *sessionModel in [self.sessionModels allValues]) {
+        for (KsSessionModel *sessionModel in [self.sessionModels allValues]) {
             [sessionModel.stream close];
         }
         [self.sessionModels removeAllObjects];
@@ -276,7 +276,7 @@ static HSDownloadManager *_downloadManager;
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSHTTPURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler
 {
     
-    HSSessionModel *sessionModel = [self getSessionModel:dataTask.taskIdentifier];
+    KsSessionModel *sessionModel = [self getSessionModel:dataTask.taskIdentifier];
     
     // 打开流
     [sessionModel.stream open];
@@ -300,7 +300,7 @@ static HSDownloadManager *_downloadManager;
  */
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
 {
-    HSSessionModel *sessionModel = [self getSessionModel:dataTask.taskIdentifier];
+    KsSessionModel *sessionModel = [self getSessionModel:dataTask.taskIdentifier];
     
     // 写入数据
     [sessionModel.stream write:data.bytes maxLength:data.length];
@@ -318,7 +318,7 @@ static HSDownloadManager *_downloadManager;
  */
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
 {
-    HSSessionModel *sessionModel = [self getSessionModel:task.taskIdentifier];
+    KsSessionModel *sessionModel = [self getSessionModel:task.taskIdentifier];
     if (!sessionModel) return;
     
     if ([self isCompletion:sessionModel.url]) {

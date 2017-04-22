@@ -27,7 +27,7 @@ typedef NS_ENUM(NSInteger, MKFileType) {
     MKFileTypeDirectory = 5, //目录
 
 };
-@interface CJFileObjModel : NSObject
+@interface KsFileObjModel : NSObject
 
 -(instancetype)initWithFilePath:(NSString *)filePath;
 

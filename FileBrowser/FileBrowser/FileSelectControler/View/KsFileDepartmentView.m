@@ -6,7 +6,7 @@
 //  Copyright © 2016年 HHLY. All rights reserved.
 //
 
-#import "VeFileDepartmentView.h"
+#import "KsFileDepartmentView.h"
 #import "Masonry.h"
 #import "UIColor+CJColorCategory.h"
 #define DepartmentWidth [UIScreen mainScreen].bounds.size.width/4.0
@@ -14,14 +14,14 @@
 #define CJScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define color01a  [UIColor colorWithRed:0.004 green:0.651 blue:0.996 alpha:1.000]
 
-@interface VeFileDepartmentView ()<UIScrollViewDelegate>
+@interface KsFileDepartmentView ()<UIScrollViewDelegate>
 
 @property (strong, nonatomic) UIView *indicatorView;
 @property (assign, nonatomic) NSInteger selectedIndex;
 
 @end
 
-@implementation VeFileDepartmentView
+@implementation KsFileDepartmentView
 
 #pragma mark - Lazy
 - (UIView *)indicatorView {
@@ -137,8 +137,8 @@
 #pragma mark - Actions
 - (void)clickDepartmentButton:(UIButton *)sender {
     self.selectedIndex = sender.tag - 100;
-    if ([self.cj_delegate respondsToSelector:@selector(didScrollToIndex:)]) {
-        [self.cj_delegate didScrollToIndex:self.selectedIndex];
+    if ([self.delegate respondsToSelector:@selector(didScrollToIndex:)]) {
+        [self.delegate didScrollToIndex:self.selectedIndex];
     }
 }
 

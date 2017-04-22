@@ -6,9 +6,9 @@
 //  Copyright © 2016年 HHLY. All rights reserved.
 //
 
-#import "CJFileTools.h"
+#import "KsFileTools.h"
 
-@implementation CJFileTools
+@implementation KsFileTools
 //移动文件到另一个文件夹下
 + (BOOL)moveFile:(NSString *)filePath to:(NSString *)path
 {

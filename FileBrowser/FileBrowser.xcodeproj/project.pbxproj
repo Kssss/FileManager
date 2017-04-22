@@ -13,24 +13,24 @@
 		DE25F2C11DC739A000ED790D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE25F2BF1DC739A000ED790D /* Main.storyboard */; };
 		DE25F2C31DC739A000ED790D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE25F2C21DC739A000ED790D /* Assets.xcassets */; };
 		DE25F2C61DC739A000ED790D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE25F2C41DC739A000ED790D /* LaunchScreen.storyboard */; };
-		DE25F2F71DC73A7900ED790D /* CJFileManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2D61DC73A7900ED790D /* CJFileManagerVC.m */; };
-		DE25F2F81DC73A7900ED790D /* CJFlieLookUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2D81DC73A7900ED790D /* CJFlieLookUpVC.m */; };
-		DE25F2F91DC73A7900ED790D /* CJFileObjModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2DB1DC73A7900ED790D /* CJFileObjModel.m */; };
+		DE25F2F71DC73A7900ED790D /* KsFileManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2D61DC73A7900ED790D /* KsFileManagerVC.m */; };
+		DE25F2F81DC73A7900ED790D /* KsFlieLookUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2D81DC73A7900ED790D /* KsFlieLookUpVC.m */; };
+		DE25F2F91DC73A7900ED790D /* KsFileObjModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2DB1DC73A7900ED790D /* KsFileObjModel.m */; };
 		DE25F2FA1DC73A7900ED790D /* 宋冬野 - 董小姐.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DE25F2DD1DC73A7900ED790D /* 宋冬野 - 董小姐.mp3 */; };
-		DE25F2FC1DC73A7900ED790D /* CJFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2E21DC73A7900ED790D /* CJFileTools.m */; };
-		DE25F2FD1DC73A7900ED790D /* HSDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2E41DC73A7900ED790D /* HSDownloadManager.m */; };
-		DE25F2FE1DC73A7900ED790D /* HSSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2E61DC73A7900ED790D /* HSSessionModel.m */; };
+		DE25F2FC1DC73A7900ED790D /* KsFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2E21DC73A7900ED790D /* KsFileTools.m */; };
+		DE25F2FD1DC73A7900ED790D /* KsDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2E41DC73A7900ED790D /* KsDownloadManager.m */; };
+		DE25F2FE1DC73A7900ED790D /* KsSessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2E61DC73A7900ED790D /* KsSessionModel.m */; };
 		DE25F2FF1DC73A7900ED790D /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2E91DC73A7900ED790D /* NSString+Hash.m */; };
 		DE25F3001DC73A7900ED790D /* UIImage+TYHSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2EB1DC73A7900ED790D /* UIImage+TYHSetting.m */; };
-		DE25F3011DC73A7900ED790D /* CJDownFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2EE1DC73A7900ED790D /* CJDownFileView.m */; };
-		DE25F3021DC73A7900ED790D /* VeFileDepartmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2F01DC73A7900ED790D /* VeFileDepartmentView.m */; };
-		DE25F3031DC73A7900ED790D /* VeFileManagerToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2F21DC73A7900ED790D /* VeFileManagerToolBar.m */; };
-		DE25F3041DC73A7900ED790D /* VeFileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2F41DC73A7900ED790D /* VeFileViewCell.m */; };
-		DE25F3051DC73A7900ED790D /* VeUnOpenFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2F61DC73A7900ED790D /* VeUnOpenFileView.m */; };
+		DE25F3011DC73A7900ED790D /* KsDownFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2EE1DC73A7900ED790D /* KsDownFileView.m */; };
+		DE25F3021DC73A7900ED790D /* KsFileDepartmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2F01DC73A7900ED790D /* KsFileDepartmentView.m */; };
+		DE25F3031DC73A7900ED790D /* KsFileManagerToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2F21DC73A7900ED790D /* KsFileManagerToolBar.m */; };
+		DE25F3041DC73A7900ED790D /* KsFileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2F41DC73A7900ED790D /* KsFileViewCell.m */; };
+		DE25F3051DC73A7900ED790D /* KsUnOpenFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2F61DC73A7900ED790D /* KsUnOpenFileView.m */; };
 		DE25F3081DC73AE900ED790D /* UIColor+CJColorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F3071DC73AE900ED790D /* UIColor+CJColorCategory.m */; };
 		DE25F30B1DC73B4F00ED790D /* UIView+CJToast.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F30A1DC73B4F00ED790D /* UIView+CJToast.m */; };
 		DE25F3111DC73C3500ED790D /* UIView+LCCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F3101DC73C3500ED790D /* UIView+LCCategory.m */; };
-		DE25F3141DC73CF400ED790D /* CJHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F3131DC73CF400ED790D /* CJHttp.m */; };
+		DE25F3141DC73CF400ED790D /* KsHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F3131DC73CF400ED790D /* KsHttp.m */; };
 		DE25F3171DC73EEC00ED790D /* angle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE25F3161DC73EEC00ED790D /* angle.jpg */; };
 		DE25F3191DC741A600ED790D /* IMG_4143.PNG in Resources */ = {isa = PBXBuildFile; fileRef = DE25F3181DC741A600ED790D /* IMG_4143.PNG */; };
 		DE25F31B1DC741F300ED790D /* he is a pirate.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DE25F31A1DC741F300ED790D /* he is a pirate.mp3 */; };
@@ -48,41 +48,41 @@
 		DE25F2C21DC739A000ED790D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE25F2C51DC739A000ED790D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE25F2C71DC739A000ED790D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE25F2D51DC73A7900ED790D /* CJFileManagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJFileManagerVC.h; sourceTree = "<group>"; };
-		DE25F2D61DC73A7900ED790D /* CJFileManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJFileManagerVC.m; sourceTree = "<group>"; };
-		DE25F2D71DC73A7900ED790D /* CJFlieLookUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJFlieLookUpVC.h; sourceTree = "<group>"; };
-		DE25F2D81DC73A7900ED790D /* CJFlieLookUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJFlieLookUpVC.m; sourceTree = "<group>"; };
-		DE25F2DA1DC73A7900ED790D /* CJFileObjModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJFileObjModel.h; sourceTree = "<group>"; };
-		DE25F2DB1DC73A7900ED790D /* CJFileObjModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJFileObjModel.m; sourceTree = "<group>"; };
+		DE25F2D51DC73A7900ED790D /* KsFileManagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KsFileManagerVC.h; sourceTree = "<group>"; };
+		DE25F2D61DC73A7900ED790D /* KsFileManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KsFileManagerVC.m; sourceTree = "<group>"; };
+		DE25F2D71DC73A7900ED790D /* KsFlieLookUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KsFlieLookUpVC.h; sourceTree = "<group>"; };
+		DE25F2D81DC73A7900ED790D /* KsFlieLookUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KsFlieLookUpVC.m; sourceTree = "<group>"; };
+		DE25F2DA1DC73A7900ED790D /* KsFileObjModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KsFileObjModel.h; sourceTree = "<group>"; };
+		DE25F2DB1DC73A7900ED790D /* KsFileObjModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KsFileObjModel.m; sourceTree = "<group>"; };
 		DE25F2DD1DC73A7900ED790D /* 宋冬野 - 董小姐.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "宋冬野 - 董小姐.mp3"; sourceTree = "<group>"; };
-		DE25F2E11DC73A7900ED790D /* CJFileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJFileTools.h; sourceTree = "<group>"; };
-		DE25F2E21DC73A7900ED790D /* CJFileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJFileTools.m; sourceTree = "<group>"; };
-		DE25F2E31DC73A7900ED790D /* HSDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSDownloadManager.h; sourceTree = "<group>"; };
-		DE25F2E41DC73A7900ED790D /* HSDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSDownloadManager.m; sourceTree = "<group>"; };
-		DE25F2E51DC73A7900ED790D /* HSSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSSessionModel.h; sourceTree = "<group>"; };
-		DE25F2E61DC73A7900ED790D /* HSSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSSessionModel.m; sourceTree = "<group>"; };
+		DE25F2E11DC73A7900ED790D /* KsFileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KsFileTools.h; sourceTree = "<group>"; };
+		DE25F2E21DC73A7900ED790D /* KsFileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KsFileTools.m; sourceTree = "<group>"; };
+		DE25F2E31DC73A7900ED790D /* KsDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KsDownloadManager.h; sourceTree = "<group>"; };
+		DE25F2E41DC73A7900ED790D /* KsDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KsDownloadManager.m; sourceTree = "<group>"; };
+		DE25F2E51DC73A7900ED790D /* KsSessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KsSessionModel.h; sourceTree = "<group>"; };
+		DE25F2E61DC73A7900ED790D /* KsSessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KsSessionModel.m; sourceTree = "<group>"; };
 		DE25F2E81DC73A7900ED790D /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
 		DE25F2E91DC73A7900ED790D /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 		DE25F2EA1DC73A7900ED790D /* UIImage+TYHSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TYHSetting.h"; sourceTree = "<group>"; };
 		DE25F2EB1DC73A7900ED790D /* UIImage+TYHSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TYHSetting.m"; sourceTree = "<group>"; };
-		DE25F2ED1DC73A7900ED790D /* CJDownFileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJDownFileView.h; sourceTree = "<group>"; };
-		DE25F2EE1DC73A7900ED790D /* CJDownFileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJDownFileView.m; sourceTree = "<group>"; };
-		DE25F2EF1DC73A7900ED790D /* VeFileDepartmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeFileDepartmentView.h; sourceTree = "<group>"; };
-		DE25F2F01DC73A7900ED790D /* VeFileDepartmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeFileDepartmentView.m; sourceTree = "<group>"; };
-		DE25F2F11DC73A7900ED790D /* VeFileManagerToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeFileManagerToolBar.h; sourceTree = "<group>"; };
-		DE25F2F21DC73A7900ED790D /* VeFileManagerToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeFileManagerToolBar.m; sourceTree = "<group>"; };
-		DE25F2F31DC73A7900ED790D /* VeFileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeFileViewCell.h; sourceTree = "<group>"; };
-		DE25F2F41DC73A7900ED790D /* VeFileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeFileViewCell.m; sourceTree = "<group>"; };
-		DE25F2F51DC73A7900ED790D /* VeUnOpenFileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VeUnOpenFileView.h; sourceTree = "<group>"; };
-		DE25F2F61DC73A7900ED790D /* VeUnOpenFileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VeUnOpenFileView.m; sourceTree = "<group>"; };
+		DE25F2ED1DC73A7900ED790D /* KsDownFileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KsDownFileView.h; sourceTree = "<group>"; };
+		DE25F2EE1DC73A7900ED790D /* KsDownFileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KsDownFileView.m; sourceTree = "<group>"; };
+		DE25F2EF1DC73A7900ED790D /* KsFileDepartmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KsFileDepartmentView.h; sourceTree = "<group>"; };
+		DE25F2F01DC73A7900ED790D /* KsFileDepartmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KsFileDepartmentView.m; sourceTree = "<group>"; };
+		DE25F2F11DC73A7900ED790D /* KsFileManagerToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KsFileManagerToolBar.h; sourceTree = "<group>"; };
+		DE25F2F21DC73A7900ED790D /* KsFileManagerToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KsFileManagerToolBar.m; sourceTree = "<group>"; };
+		DE25F2F31DC73A7900ED790D /* KsFileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KsFileViewCell.h; sourceTree = "<group>"; };
+		DE25F2F41DC73A7900ED790D /* KsFileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KsFileViewCell.m; sourceTree = "<group>"; };
+		DE25F2F51DC73A7900ED790D /* KsUnOpenFileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KsUnOpenFileView.h; sourceTree = "<group>"; };
+		DE25F2F61DC73A7900ED790D /* KsUnOpenFileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KsUnOpenFileView.m; sourceTree = "<group>"; };
 		DE25F3061DC73AE900ED790D /* UIColor+CJColorCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CJColorCategory.h"; sourceTree = "<group>"; };
 		DE25F3071DC73AE900ED790D /* UIColor+CJColorCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CJColorCategory.m"; sourceTree = "<group>"; };
 		DE25F3091DC73B4F00ED790D /* UIView+CJToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CJToast.h"; sourceTree = "<group>"; };
 		DE25F30A1DC73B4F00ED790D /* UIView+CJToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CJToast.m"; sourceTree = "<group>"; };
 		DE25F30F1DC73C3500ED790D /* UIView+LCCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LCCategory.h"; sourceTree = "<group>"; };
 		DE25F3101DC73C3500ED790D /* UIView+LCCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LCCategory.m"; sourceTree = "<group>"; };
-		DE25F3121DC73CF400ED790D /* CJHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJHttp.h; sourceTree = "<group>"; };
-		DE25F3131DC73CF400ED790D /* CJHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJHttp.m; sourceTree = "<group>"; };
+		DE25F3121DC73CF400ED790D /* KsHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KsHttp.h; sourceTree = "<group>"; };
+		DE25F3131DC73CF400ED790D /* KsHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KsHttp.m; sourceTree = "<group>"; };
 		DE25F3161DC73EEC00ED790D /* angle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = angle.jpg; sourceTree = "<group>"; };
 		DE25F3181DC741A600ED790D /* IMG_4143.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_4143.PNG; sourceTree = "<group>"; };
 		DE25F31A1DC741F300ED790D /* he is a pirate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "he is a pirate.mp3"; sourceTree = "<group>"; };
@@ -161,10 +161,10 @@
 		DE25F2D41DC73A7900ED790D /* FileSelectControler */ = {
 			isa = PBXGroup;
 			children = (
-				DE25F2D51DC73A7900ED790D /* CJFileManagerVC.h */,
-				DE25F2D61DC73A7900ED790D /* CJFileManagerVC.m */,
-				DE25F2D71DC73A7900ED790D /* CJFlieLookUpVC.h */,
-				DE25F2D81DC73A7900ED790D /* CJFlieLookUpVC.m */,
+				DE25F2D51DC73A7900ED790D /* KsFileManagerVC.h */,
+				DE25F2D61DC73A7900ED790D /* KsFileManagerVC.m */,
+				DE25F2D71DC73A7900ED790D /* KsFlieLookUpVC.h */,
+				DE25F2D81DC73A7900ED790D /* KsFlieLookUpVC.m */,
 				DE25F2D91DC73A7900ED790D /* Model */,
 				DE25F2DC1DC73A7900ED790D /* TestFile */,
 				DE25F2DF1DC73A7900ED790D /* Tools */,
@@ -176,8 +176,8 @@
 		DE25F2D91DC73A7900ED790D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DE25F2DA1DC73A7900ED790D /* CJFileObjModel.h */,
-				DE25F2DB1DC73A7900ED790D /* CJFileObjModel.m */,
+				DE25F2DA1DC73A7900ED790D /* KsFileObjModel.h */,
+				DE25F2DB1DC73A7900ED790D /* KsFileObjModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,8 +196,8 @@
 		DE25F2DF1DC73A7900ED790D /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				DE25F3121DC73CF400ED790D /* CJHttp.h */,
-				DE25F3131DC73CF400ED790D /* CJHttp.m */,
+				DE25F3121DC73CF400ED790D /* KsHttp.h */,
+				DE25F3131DC73CF400ED790D /* KsHttp.m */,
 				DE25F30F1DC73C3500ED790D /* UIView+LCCategory.h */,
 				DE25F3101DC73C3500ED790D /* UIView+LCCategory.m */,
 				DE25F3091DC73B4F00ED790D /* UIView+CJToast.h */,
@@ -214,12 +214,12 @@
 		DE25F2E01DC73A7900ED790D /* HSDownloadManager */ = {
 			isa = PBXGroup;
 			children = (
-				DE25F2E11DC73A7900ED790D /* CJFileTools.h */,
-				DE25F2E21DC73A7900ED790D /* CJFileTools.m */,
-				DE25F2E31DC73A7900ED790D /* HSDownloadManager.h */,
-				DE25F2E41DC73A7900ED790D /* HSDownloadManager.m */,
-				DE25F2E51DC73A7900ED790D /* HSSessionModel.h */,
-				DE25F2E61DC73A7900ED790D /* HSSessionModel.m */,
+				DE25F2E11DC73A7900ED790D /* KsFileTools.h */,
+				DE25F2E21DC73A7900ED790D /* KsFileTools.m */,
+				DE25F2E31DC73A7900ED790D /* KsDownloadManager.h */,
+				DE25F2E41DC73A7900ED790D /* KsDownloadManager.m */,
+				DE25F2E51DC73A7900ED790D /* KsSessionModel.h */,
+				DE25F2E61DC73A7900ED790D /* KsSessionModel.m */,
 				DE25F2E71DC73A7900ED790D /* MD5 */,
 			);
 			path = HSDownloadManager;
@@ -237,16 +237,16 @@
 		DE25F2EC1DC73A7900ED790D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DE25F2ED1DC73A7900ED790D /* CJDownFileView.h */,
-				DE25F2EE1DC73A7900ED790D /* CJDownFileView.m */,
-				DE25F2EF1DC73A7900ED790D /* VeFileDepartmentView.h */,
-				DE25F2F01DC73A7900ED790D /* VeFileDepartmentView.m */,
-				DE25F2F11DC73A7900ED790D /* VeFileManagerToolBar.h */,
-				DE25F2F21DC73A7900ED790D /* VeFileManagerToolBar.m */,
-				DE25F2F31DC73A7900ED790D /* VeFileViewCell.h */,
-				DE25F2F41DC73A7900ED790D /* VeFileViewCell.m */,
-				DE25F2F51DC73A7900ED790D /* VeUnOpenFileView.h */,
-				DE25F2F61DC73A7900ED790D /* VeUnOpenFileView.m */,
+				DE25F2ED1DC73A7900ED790D /* KsDownFileView.h */,
+				DE25F2EE1DC73A7900ED790D /* KsDownFileView.m */,
+				DE25F2EF1DC73A7900ED790D /* KsFileDepartmentView.h */,
+				DE25F2F01DC73A7900ED790D /* KsFileDepartmentView.m */,
+				DE25F2F11DC73A7900ED790D /* KsFileManagerToolBar.h */,
+				DE25F2F21DC73A7900ED790D /* KsFileManagerToolBar.m */,
+				DE25F2F31DC73A7900ED790D /* KsFileViewCell.h */,
+				DE25F2F41DC73A7900ED790D /* KsFileViewCell.m */,
+				DE25F2F51DC73A7900ED790D /* KsUnOpenFileView.h */,
+				DE25F2F61DC73A7900ED790D /* KsUnOpenFileView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Ve;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Vieene;
 				TargetAttributes = {
 					DE25F2B21DC739A000ED790D = {
@@ -379,25 +379,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE25F3031DC73A7900ED790D /* VeFileManagerToolBar.m in Sources */,
+				DE25F3031DC73A7900ED790D /* KsFileManagerToolBar.m in Sources */,
 				DE25F3111DC73C3500ED790D /* UIView+LCCategory.m in Sources */,
-				DE25F2F91DC73A7900ED790D /* CJFileObjModel.m in Sources */,
-				DE25F3041DC73A7900ED790D /* VeFileViewCell.m in Sources */,
+				DE25F2F91DC73A7900ED790D /* KsFileObjModel.m in Sources */,
+				DE25F3041DC73A7900ED790D /* KsFileViewCell.m in Sources */,
 				DE25F3081DC73AE900ED790D /* UIColor+CJColorCategory.m in Sources */,
 				DE25F30B1DC73B4F00ED790D /* UIView+CJToast.m in Sources */,
-				DE25F2F71DC73A7900ED790D /* CJFileManagerVC.m in Sources */,
-				DE25F3141DC73CF400ED790D /* CJHttp.m in Sources */,
+				DE25F2F71DC73A7900ED790D /* KsFileManagerVC.m in Sources */,
+				DE25F3141DC73CF400ED790D /* KsHttp.m in Sources */,
 				DE25F2FF1DC73A7900ED790D /* NSString+Hash.m in Sources */,
-				DE25F2FE1DC73A7900ED790D /* HSSessionModel.m in Sources */,
-				DE25F2F81DC73A7900ED790D /* CJFlieLookUpVC.m in Sources */,
-				DE25F3051DC73A7900ED790D /* VeUnOpenFileView.m in Sources */,
-				DE25F2FD1DC73A7900ED790D /* HSDownloadManager.m in Sources */,
+				DE25F2FE1DC73A7900ED790D /* KsSessionModel.m in Sources */,
+				DE25F2F81DC73A7900ED790D /* KsFlieLookUpVC.m in Sources */,
+				DE25F3051DC73A7900ED790D /* KsUnOpenFileView.m in Sources */,
+				DE25F2FD1DC73A7900ED790D /* KsDownloadManager.m in Sources */,
 				DE25F3001DC73A7900ED790D /* UIImage+TYHSetting.m in Sources */,
 				DE25F2BB1DC739A000ED790D /* AppDelegate.m in Sources */,
 				DE25F2B81DC739A000ED790D /* main.m in Sources */,
-				DE25F2FC1DC73A7900ED790D /* CJFileTools.m in Sources */,
-				DE25F3021DC73A7900ED790D /* VeFileDepartmentView.m in Sources */,
-				DE25F3011DC73A7900ED790D /* CJDownFileView.m in Sources */,
+				DE25F2FC1DC73A7900ED790D /* KsFileTools.m in Sources */,
+				DE25F3021DC73A7900ED790D /* KsFileDepartmentView.m in Sources */,
+				DE25F3011DC73A7900ED790D /* KsDownFileView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +441,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -488,6 +489,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

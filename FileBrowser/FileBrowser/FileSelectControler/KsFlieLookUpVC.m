@@ -6,22 +6,22 @@
 //  Copyright © 2016年 Vieene. All rights reserved.
 //
 
-#import "CJFlieLookUpVC.h"
+#import "KsFlieLookUpVC.h"
 #import <QuickLook/QuickLook.h>
-#import "VeUnOpenFileView.h"
-#import "CJFileObjModel.h"
+#import "KsUnOpenFileView.h"
+#import "KsFileObjModel.h"
 #import "Masonry.h"
 #import "UIView+LCCategory.h"
-#import "CJDownFileView.h"
-@interface CJFlieLookUpVC ()<UIDocumentInteractionControllerDelegate>
-@property (nonatomic,strong) CJFileObjModel *actualmodel;
+#import "KsDownFileView.h"
+@interface KsFlieLookUpVC ()<UIDocumentInteractionControllerDelegate>
+@property (nonatomic,strong) KsFileObjModel *actualmodel;
 @property (nonatomic,strong)UIDocumentInteractionController *documentInteraction;
-@property (nonatomic,strong) VeUnOpenFileView *openfileView;
-@property (nonatomic,strong) CJDownFileView *downView;
+@property (nonatomic,strong) KsUnOpenFileView *openfileView;
+@property (nonatomic,strong) KsDownFileView *downView;
 @end
 
-@implementation CJFlieLookUpVC
-- (instancetype)initWithFileModel:(CJFileObjModel *)fileModel;
+@implementation KsFlieLookUpVC
+- (instancetype)initWithFileModel:(KsFileObjModel *)fileModel;
 {
     if ((fileModel.filePath == nil || [fileModel.filePath isEqualToString:@""]) && fileModel.fileUrl == nil) {
         return nil;
@@ -62,8 +62,8 @@
         //    _documentInteraction.UTI = @"com.microsoft.ico";
         if(![_documentInteraction presentPreviewAnimated:NO]){
             [self openfileView];
-            __weak CJFlieLookUpVC *weakself = self;
-            _openfileView.Clickblock = ^(CJFileObjModel *model){
+            __weak KsFlieLookUpVC *weakself = self;
+            _openfileView.Clickblock = ^(KsFileObjModel *model){
                 [weakself.documentInteraction presentOpenInMenuFromRect:CGRectMake(0, weakself.view.height - 500, 100, 100)
                                                                  inView:weakself.view
                                                                animated:YES];
@@ -79,14 +79,14 @@
 {
     [self downView];
 }
-- (CJDownFileView *)downView
+- (KsDownFileView *)downView
 {
     if (_downView == nil) {
-        _downView = [[CJDownFileView alloc] init];
+        _downView = [[KsDownFileView alloc] init];
         _downView.model = _actualmodel;
         [self.view addSubview:_downView];
         __weak typeof(self) weakself = self;
-        _downView.downloadComplete = ^(CJFileObjModel *model){
+        _downView.downloadComplete = ^(KsFileObjModel *model){
             weakself.downView.hidden =YES;
             if (weakself.downloadCompleteBlock) {
                 weakself.downloadCompleteBlock(model);
@@ -96,10 +96,10 @@
     }
     return _downView;
 }
-- (VeUnOpenFileView *)openfileView
+- (KsUnOpenFileView *)openfileView
 {
     if (_openfileView == nil) {
-        _openfileView = [[VeUnOpenFileView alloc] init];
+        _openfileView = [[KsUnOpenFileView alloc] init];
         _openfileView.model =_actualmodel;
         [self.view addSubview:_openfileView];
     }

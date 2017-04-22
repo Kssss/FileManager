@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CJFileTools : NSObject
+@interface KsFileTools : NSObject
 //移动文件到另一个文件夹下
 + (BOOL)moveFile:(NSString *)filePath to:(NSString *)path;
 //移动文件到另一个文件夹下

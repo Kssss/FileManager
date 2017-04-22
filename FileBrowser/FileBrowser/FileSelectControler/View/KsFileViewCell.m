@@ -6,17 +6,17 @@
 //  Copyright © 2016年 Vieene. All rights reserved.
 //
 
-#import "VeFileViewCell.h"
+#import "KsFileViewCell.h"
 #import "Masonry.h"
-#import "CJFileObjModel.h"
+#import "KsFileObjModel.h"
 #import "UIColor+CJColorCategory.h"
-@interface VeFileViewCell ()
+@interface KsFileViewCell ()
 @property (nonatomic,strong) UIImageView *headImagV;
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *detailLabel;
 @property (nonatomic,strong) UIButton *sendBtn;
 @end
-@implementation VeFileViewCell
+@implementation KsFileViewCell
 - (instancetype) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -50,7 +50,7 @@
     }
     return self;
 }
-- (void)setModel:(CJFileObjModel *)model
+- (void)setModel:(KsFileObjModel *)model
 {
     _model = model;
     self.headImagV.image = model.image;

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CJSession,CJFileObjModel;
+@class CJSession,KsFileObjModel;
 @interface UIImage (TYHSetting)
 /**
  *  将颜色转换为图片
@@ -22,10 +22,10 @@
 /**
  *  根据CJFileObjModel 返回图片
  */
-+ (UIImage *)imageWithFileModel:(CJFileObjModel *)model;
++ (UIImage *)imageWithFileModel:(KsFileObjModel *)model;
 
 /**
  *  根据CJFileObjModel 返回图片（查看文件时候用到）
  */
-+ (UIImage *)imageWithFileModelOnCheck:(CJFileObjModel *)model;
++ (UIImage *)imageWithFileModelOnCheck:(KsFileObjModel *)model;
 @end

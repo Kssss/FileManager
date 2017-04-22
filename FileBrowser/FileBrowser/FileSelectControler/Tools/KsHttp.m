@@ -6,12 +6,12 @@
 //  Copyright © 2016年 HHLY. All rights reserved.
 //
 
-#import "CJHttp.h"
+#import "KsHttp.h"
 
-@implementation CJHttp
+@implementation KsHttp
 + (instancetype)shareInstance
 {
-    static CJHttp *baseTool = nil;
+    static KsHttp *baseTool = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         baseTool = [[self alloc] initWithBaseURL:nil sessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];

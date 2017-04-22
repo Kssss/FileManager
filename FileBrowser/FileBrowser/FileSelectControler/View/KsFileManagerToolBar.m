@@ -6,20 +6,20 @@
 //  Copyright © 2016年 hhly. All rights reserved.
 //
 
-#import "VeFileManagerToolBar.h"
+#import "KsFileManagerToolBar.h"
 #import "UIImage+TYHSetting.h"
-#import "CJFileObjModel.h"
+#import "KsFileObjModel.h"
 #import "Masonry.h"
 #import "UIColor+CJColorCategory.h"
 #define color01a  [UIColor colorWithRed:0.004 green:0.651 blue:0.996 alpha:1.000]
 
-@interface VeFileManagerToolBar ()
+@interface KsFileManagerToolBar ()
 @property (weak, nonatomic) UIButton *senderButton;
 @property (weak, nonatomic) UILabel *originalLabel;
 @property (assign, nonatomic) NSInteger bytes;
 @end
 
-@implementation VeFileManagerToolBar
+@implementation KsFileManagerToolBar
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -98,7 +98,7 @@
         __block NSInteger lastSelectedItem = 0;
         NSString *bytes = nil;
 
-        for (CJFileObjModel *fileObj in self.selectedItems) {
+        for (KsFileObjModel *fileObj in self.selectedItems) {
             lastSelectedItem++;
             dataLength += fileObj.fileSizefloat;
             

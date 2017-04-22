@@ -7,7 +7,7 @@
 //
 
 #import "UIImage+TYHSetting.h"
-#import "CJFileObjModel.h"
+#import "KsFileObjModel.h"
 static const UInt8 IMAGES_TYPES_COUNT = 8;
 static const UInt8 TEXT_TYPES_COUNT = 14;
 static const UInt8 VIOCEVIDIO_COUNT = 14;
@@ -33,7 +33,7 @@ static const NSString *Application_types[Application_count] = {@"apk",@"APK",@"i
     UIGraphicsEndImageContext();
     return theImage;
 }
-+ (UIImage *)imageWithFileModel:(CJFileObjModel *)model
++ (UIImage *)imageWithFileModel:(KsFileObjModel *)model
 {
     NSArray *textTypesArray = [NSArray arrayWithObjects: TEXT_TYPES count: TEXT_TYPES_COUNT];
     NSArray *viceViodeArray = [NSArray arrayWithObjects: VIOCEVIDIO_TYPES count: VIOCEVIDIO_COUNT];
@@ -77,7 +77,7 @@ static const NSString *Application_types[Application_count] = {@"apk",@"APK",@"i
     }
     return nil;
 }
-+ (UIImage *)imageWithFileModelOnCheck:(CJFileObjModel *)model
++ (UIImage *)imageWithFileModelOnCheck:(KsFileObjModel *)model
 {
 
     NSArray *textTypesArray = [NSArray arrayWithObjects: TEXT_TYPES count: TEXT_TYPES_COUNT];

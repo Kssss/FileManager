@@ -6,26 +6,26 @@
 //  Copyright © 2016年 Vieene. All rights reserved.
 //
 
-//文件默认存储的路径
+//文件管理器默认管理的路径
 #define HomeFilePath [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"CJFileCache1"]
 
 ///屏幕高度/宽度
 #define CJScreenWidth        [UIScreen mainScreen].bounds.size.width
 #define CJScreenHeight       [UIScreen mainScreen].bounds.size.height
-#import "CJFileManagerVC.h"
-#import "CJFileObjModel.h"
-#import "VeFileViewCell.h"
-#import "VeFileManagerToolBar.h"
-#import "VeFileDepartmentView.h"
-#import "CJFlieLookUpVC.h"
+#import "KsFileManagerVC.h"
+#import "KsFileObjModel.h"
+#import "KsFileViewCell.h"
+#import "KsFileManagerToolBar.h"
+#import "KsFileDepartmentView.h"
+#import "KsFlieLookUpVC.h"
 #import "UIView+CJToast.h"
 
 CGFloat departmentH = 48;
 CGFloat toolBarHeight = 49;
 
-@interface CJFileManagerVC ()<UITableViewDelegate,UITableViewDataSource,TYHInternalAssetGridToolBarDelegate,CJDepartmentViewDelegate>
-@property (strong, nonatomic) VeFileDepartmentView *departmentView;//文件的类目视图
-@property (strong, nonatomic) VeFileManagerToolBar *assetGridToolBar;//底部发送的工具条
+@interface KsFileManagerVC ()<UITableViewDelegate,UITableViewDataSource,KsInternalAssetGridToolBarDelegate,KsDepartmentViewDelegate>
+@property (strong, nonatomic) KsFileDepartmentView *departmentView;//文件的类目视图
+@property (strong, nonatomic) KsFileManagerToolBar *assetGridToolBar;//底部发送的工具条
 @property (strong, nonatomic) NSMutableArray *selectedItems;//记录选中的cell的模型
 @property (nonatomic,strong) UITableView *tabvlew;
 @property (nonatomic,strong) NSMutableArray *dataSource;
@@ -34,7 +34,7 @@ CGFloat toolBarHeight = 49;
 @property (nonatomic,strong) NSArray *depatmentArray;//文件分类数组
 @end
 
-@implementation CJFileManagerVC
+@implementation KsFileManagerVC
 + (void)initialize
 {
     [self getHomeFilePath];
@@ -74,7 +74,7 @@ CGFloat toolBarHeight = 49;
 }
 - (void)setupToolbar
 {
-    VeFileManagerToolBar *toolbar = [[VeFileManagerToolBar alloc] initWithFrame:CGRectMake(0, CJScreenHeight - toolBarHeight, CJScreenWidth, toolBarHeight)];
+    KsFileManagerToolBar *toolbar = [[KsFileManagerToolBar alloc] initWithFrame:CGRectMake(0, CJScreenHeight - toolBarHeight, CJScreenWidth, toolBarHeight)];
     toolbar.delegate = self;
     _assetGridToolBar = toolbar;
     _assetGridToolBar.backgroundColor = [UIColor lightGrayColor];
@@ -92,12 +92,12 @@ CGFloat toolBarHeight = 49;
     return _selectedItems;
 }
 
-- (VeFileDepartmentView *)departmentView
+- (KsFileDepartmentView *)departmentView
 {
     if (_departmentView == nil) {
         CGRect frame = CGRectMake(0, 64, CJScreenWidth, departmentH);
-        _departmentView = [[VeFileDepartmentView alloc] initWithParts:self.depatmentArray withFrame:frame];
-        _departmentView.cj_delegate = self;
+        _departmentView = [[KsFileDepartmentView alloc] initWithParts:self.depatmentArray withFrame:frame];
+        _departmentView.delegate = self;
         [self.view addSubview:_departmentView];
     }
     return _departmentView;
@@ -113,10 +113,10 @@ CGFloat toolBarHeight = 49;
     NSString *path3 = [[NSBundle mainBundle] pathForResource:@"angle" ofType:@"jpg"];
     NSString *path4 = [[NSBundle mainBundle] pathForResource:@"he is a pirate" ofType:@"mp3"];
 
-    CJFileObjModel *mode1 = [[CJFileObjModel alloc] initWithFilePath:path1];
-    CJFileObjModel *mode2 = [[CJFileObjModel alloc] initWithFilePath:path2];
-    CJFileObjModel *mode3 = [[CJFileObjModel alloc] initWithFilePath:path3];
-    CJFileObjModel *mode4 = [[CJFileObjModel alloc] initWithFilePath:path4];
+    KsFileObjModel *mode1 = [[KsFileObjModel alloc] initWithFilePath:path1];
+    KsFileObjModel *mode2 = [[KsFileObjModel alloc] initWithFilePath:path2];
+    KsFileObjModel *mode3 = [[KsFileObjModel alloc] initWithFilePath:path3];
+    KsFileObjModel *mode4 = [[KsFileObjModel alloc] initWithFilePath:path4];
 
     [self.originFileArray addObjectsFromArray:@[mode1,mode2,mode3,mode4]];
     
@@ -124,7 +124,7 @@ CGFloat toolBarHeight = 49;
     //遍历HomeFilePath文件夹下的子文件
     NSArray<NSString *> *subPathsArray = [fileManager contentsOfDirectoryAtPath:HomeFilePath error: NULL];
     for(NSString *str in subPathsArray){
-        CJFileObjModel *object = [[CJFileObjModel alloc] initWithFilePath: [NSString stringWithFormat:@"%@/%@",HomeFilePath, str]];
+        KsFileObjModel *object = [[KsFileObjModel alloc] initWithFilePath: [NSString stringWithFormat:@"%@/%@",HomeFilePath, str]];
         [self.originFileArray addObject: object];
     }
     self.dataSource = self.originFileArray.mutableCopy;
@@ -144,14 +144,14 @@ CGFloat toolBarHeight = 49;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    VeFileViewCell *cell = (VeFileViewCell *)[tableView dequeueReusableCellWithIdentifier:@"fileCell"];
+    KsFileViewCell *cell = (KsFileViewCell *)[tableView dequeueReusableCellWithIdentifier:@"fileCell"];
     if (cell == nil) {
-         cell = [[VeFileViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"fileCell"];
+         cell = [[KsFileViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"fileCell"];
     }
-    CJFileObjModel *actualFile = [_dataSource objectAtIndex:indexPath.row];
+    KsFileObjModel *actualFile = [_dataSource objectAtIndex:indexPath.row];
     cell.model = actualFile;
     __weak typeof(self) weakSelf = self;
-    cell.Clickblock = ^(CJFileObjModel *model,UIButton *btn){
+    cell.Clickblock = ^(KsFileObjModel *model,UIButton *btn){
         if (weakSelf.selectedItems.count>=5 && btn.selected) {
             btn.selected =  NO;
             model.select = btn.selected;
@@ -179,10 +179,10 @@ CGFloat toolBarHeight = 49;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    CJFileObjModel *actualFile = [_dataSource objectAtIndex:indexPath.row];
+    KsFileObjModel *actualFile = [_dataSource objectAtIndex:indexPath.row];
     NSString *cachePath =actualFile.filePath;
     NSLog(@"调用文件查看控制器%@---type %zd, %@",actualFile.name,actualFile.fileType,cachePath);
-    CJFlieLookUpVC *vc = [[CJFlieLookUpVC alloc] initWithFileModel:actualFile];
+    KsFlieLookUpVC *vc = [[KsFlieLookUpVC alloc] initWithFileModel:actualFile];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -195,7 +195,7 @@ CGFloat toolBarHeight = 49;
             {
                 NSLog(@"btn.tag%zd",index);
                 self.dataSource = self.originFileArray.mutableCopy;
-                [self.dataSource enumerateObjectsUsingBlock:^(CJFileObjModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [self.dataSource enumerateObjectsUsingBlock:^(KsFileObjModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
                     NSLog(@"obj----%zd",self.dataSource);
                 }];
                 [self.tabvlew reloadData];
@@ -206,7 +206,7 @@ CGFloat toolBarHeight = 49;
             {
                 NSLog(@"btn.tag%zd",index);
                 [self.dataSource removeAllObjects];
-                for (CJFileObjModel * model in self.originFileArray) {
+                for (KsFileObjModel * model in self.originFileArray) {
                 if (model.fileType == MKFileTypeAudioVidio) {
                         [self.dataSource addObject:model];
                     }
@@ -218,7 +218,7 @@ CGFloat toolBarHeight = 49;
             {
                 NSLog(@"btn.tag%zd",index);
                 [self.dataSource removeAllObjects];
-                for (CJFileObjModel * model in self.originFileArray) {
+                for (KsFileObjModel * model in self.originFileArray) {
                     if (model.fileType == MKFileTypeTxt) {
                         [self.dataSource addObject:model];
                     }
@@ -230,7 +230,7 @@ CGFloat toolBarHeight = 49;
             {
                 NSLog(@"btn.tag%zd",index);
                 [self.dataSource removeAllObjects];
-                for (CJFileObjModel * model in self.originFileArray) {
+                for (KsFileObjModel * model in self.originFileArray) {
                     if (model.fileType == MKFileTypeApplication) {
                         [self.dataSource addObject:model];
                     }
@@ -242,7 +242,7 @@ CGFloat toolBarHeight = 49;
             {
                 NSLog(@"btn.tag%zd",index);
                 [self.dataSource removeAllObjects];
-                for (CJFileObjModel * model in self.originFileArray) {
+                for (KsFileObjModel * model in self.originFileArray) {
                     if (model.fileType == MKFileTypeUnknown) {
                         [self.dataSource addObject:model];
                     }
@@ -257,8 +257,8 @@ CGFloat toolBarHeight = 49;
 }
 //将已经记录选中的文件，保存
 - (void)setOrigArray{
-    for (CJFileObjModel *model  in self.selectedItems) {
-        [self.originFileArray enumerateObjectsUsingBlock:^(CJFileObjModel *origModel, NSUInteger idx, BOOL * _Nonnull stop) {
+    for (KsFileObjModel *model  in self.selectedItems) {
+        [self.originFileArray enumerateObjectsUsingBlock:^(KsFileObjModel *origModel, NSUInteger idx, BOOL * _Nonnull stop) {
             if ([origModel.filePath isEqualToString:model.filePath]) {
                 origModel.select = model.select;
                 NSLog(@"被选中的item 是：%@",origModel.filePath);
@@ -268,10 +268,10 @@ CGFloat toolBarHeight = 49;
 }
 #pragma mark --TYHInternalAssetGridToolBarDelegate
 
-- (void)didClickSenderButtonInAssetGridToolBar:(VeFileManagerToolBar *)internalAssetGridToolBar
+- (void)didClickSenderButtonInAssetGridToolBar:(KsFileManagerToolBar *)internalAssetGridToolBar
 {
     
-    NSLog(@"SenderButtonInAsset----%@",self.selectedItems);
+    NSLog(@" 发送文件 ----%@",self.selectedItems);
     [self dismissViewControllerAnimated:YES completion:nil];
 
     if ([self.fileSelectVcDelegate respondsToSelector:@selector(fileViewControlerSelected:)]) {
@@ -288,7 +288,7 @@ CGFloat toolBarHeight = 49;
                                                         error:nil];
     }
 }
-- (BOOL )checkFileSize:(CJFileObjModel *)model
+- (BOOL )checkFileSize:(KsFileObjModel *)model
 {
     if (model.fileSizefloat >= 5000000) {
         return NO;

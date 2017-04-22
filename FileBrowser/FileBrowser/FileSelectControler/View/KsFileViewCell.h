@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CJFileObjModel;
-@interface VeFileViewCell : UITableViewCell
-@property (nonatomic,strong)CJFileObjModel *model;
-@property (nonatomic,copy) void (^Clickblock)(CJFileObjModel *model,UIButton *btn);
+@class KsFileObjModel;
+@interface KsFileViewCell : UITableViewCell
+@property (nonatomic,strong)KsFileObjModel *model;
+@property (nonatomic,copy) void (^Clickblock)(KsFileObjModel *model,UIButton *btn);
 
 - (instancetype) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 @end

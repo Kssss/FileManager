@@ -14,7 +14,7 @@ typedef enum {
 }DownloadState;
 
 #import <UIKit/UIKit.h>
-@interface HSSessionModel : NSObject
+@interface KsSessionModel : NSObject
 
 /** 流 */
 @property (nonatomic, strong) NSOutputStream *stream;

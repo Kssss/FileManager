@@ -1,20 +1,20 @@
 //
-//  CJDownFileView.m
+//  KsDownFileView.m
 //  Antenna
 //
 //  Created by Vieene on 2016/10/26.
 //  Copyright © 2016年 HHLY. All rights reserved.
 //
 
-#import "CJDownFileView.h"
-#import "CJFileObjModel.h"
-#import "HSDownloadManager.h"
-#import "CJFileTools.h"
+#import "KsDownFileView.h"
+#import "KsFileObjModel.h"
+#import "KsDownloadManager.h"
+#import "KsFileTools.h"
 #import "UIImageView+WebCache.h"
 #import "NSString+hash.h"
 #import "UIImage+TYHSetting.h"
 #import "UIColor+CJColorCategory.h"
-#import "CJHttp.h"
+#import "KsHttp.h"
 #import <Masonry.h>
 #define HomeFilePath [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"CJFileCache1"]
 #define HSCachesDirectory2 [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"CJFileCache2"]
@@ -24,7 +24,7 @@
 static const UInt8 IMAGES_TYPES_COUNT = 8;
 static const NSString *IMAGES_TYPES[IMAGES_TYPES_COUNT] = {@"png", @"PNG", @"jpg",@",JPG", @"jpeg", @"JPEG" ,@"gif", @"GIF"};
 
-@interface CJDownFileView ()
+@interface KsDownFileView ()
 @property (nonatomic,strong) UIImageView *fileImage;
 @property (nonatomic,strong) UILabel * fileName;
 @property (nonatomic,strong) UILabel *fileSize;
@@ -34,7 +34,7 @@ static const NSString *IMAGES_TYPES[IMAGES_TYPES_COUNT] = {@"png", @"PNG", @"jpg
 @property (nonatomic,strong) UIButton  *cancleBtn;
 
 @end
-@implementation CJDownFileView
+@implementation KsDownFileView
 - (instancetype)init
 {
     if (self = [super init]) {
@@ -95,7 +95,7 @@ static const NSString *IMAGES_TYPES[IMAGES_TYPES_COUNT] = {@"png", @"PNG", @"jpg
     [self addSubview:_startBtn];
     
 }
-- (void)setModel:(CJFileObjModel *)model
+- (void)setModel:(KsFileObjModel *)model
 {
     _model = model;
     NSArray *imageTypesArray = [NSArray arrayWithObjects: IMAGES_TYPES count: IMAGES_TYPES_COUNT];
@@ -111,7 +111,7 @@ static const NSString *IMAGES_TYPES[IMAGES_TYPES_COUNT] = {@"png", @"PNG", @"jpg
     
     _fileSize.text = model.fileSize;
     
-    if([CJHttp shareInstance].reachabilityManager.networkReachabilityStatus == AFNetworkReachabilityStatusReachableViaWiFi){
+    if([KsHttp shareInstance].reachabilityManager.networkReachabilityStatus == AFNetworkReachabilityStatusReachableViaWiFi){
         _downProgressView.hidden = NO;
         _startBtn.hidden = YES;
         __weak typeof(self) weakSelf = self;
@@ -135,7 +135,7 @@ static const NSString *IMAGES_TYPES[IMAGES_TYPES_COUNT] = {@"png", @"PNG", @"jpg
 //    [[HSDownloadManager sharedInstance] deleteAllFile];
     __weak typeof(self) weakSelf = self;
 
-    [[HSDownloadManager sharedInstance] download:_model.fileUrl progress:^(NSInteger receivedSize, NSInteger expectedSize, CGFloat progress) {
+    [[KsDownloadManager sharedInstance] download:_model.fileUrl progress:^(NSInteger receivedSize, NSInteger expectedSize, CGFloat progress) {
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.downProgressView.progress = progress;
         });
@@ -170,9 +170,9 @@ static const NSString *IMAGES_TYPES[IMAGES_TYPES_COUNT] = {@"png", @"PNG", @"jpg
     NSString *originName = [HSCachesDirectory2 stringByAppendingPathComponent:[_model.fileUrl md5String]];
 //  目标文件
     NSString *destination = [HomeFilePath stringByAppendingPathComponent:_model.name];
-    destination =  [CJFileTools checkFileName:destination];
+    destination =  [KsFileTools checkFileName:destination];
     _model.filePath = destination;
-    BOOL reult =  [CJFileTools copyFile:originName to:destination];
+    BOOL reult =  [KsFileTools copyFile:originName to:destination];
     
     NSLog(@"文件复制的结果：reult %d",reult);
 }

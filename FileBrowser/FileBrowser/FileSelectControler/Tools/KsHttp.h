@@ -8,7 +8,7 @@
 
 #import <AFNetworking/AFNetworking.h>
 
-@interface CJHttp : AFHTTPSessionManager
+@interface KsHttp : AFHTTPSessionManager
 + (instancetype)shareInstance;
 
 @end

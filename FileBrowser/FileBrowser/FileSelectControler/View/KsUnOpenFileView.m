@@ -6,9 +6,9 @@
 //  Copyright © 2016年 Vieene. All rights reserved.
 //
 
-#import "VeUnOpenFileView.h"
+#import "KsUnOpenFileView.h"
 #import "Masonry.h"
-#import "CJFileObjModel.h"
+#import "KsFileObjModel.h"
 #import "UIImage+TYHSetting.h"
 #import "UIColor+CJColorCategory.h"
 static const UInt8 IMAGES_TYPES_COUNT = 8;
@@ -16,7 +16,7 @@ static const NSString *IMAGES_TYPES[IMAGES_TYPES_COUNT] = {@"png", @"PNG", @"jpg
 
 #define color01a  [UIColor colorWithRed:0.004 green:0.651 blue:0.996 alpha:1.000]
 
-@interface VeUnOpenFileView ()
+@interface KsUnOpenFileView ()
 @property (nonatomic,strong) UIImageView *fileImage;
 @property (nonatomic,strong) UILabel * fileName;
 @property (nonatomic,strong) UILabel *fileSize;
@@ -24,7 +24,7 @@ static const NSString *IMAGES_TYPES[IMAGES_TYPES_COUNT] = {@"png", @"PNG", @"jpg
 
 @property (nonatomic,strong) UIButton *openOtherBtn;
 @end
-@implementation VeUnOpenFileView
+@implementation KsUnOpenFileView
 - (instancetype)init
 {
     if (self = [super init]) {
@@ -81,7 +81,7 @@ static const NSString *IMAGES_TYPES[IMAGES_TYPES_COUNT] = {@"png", @"PNG", @"jpg
     [self addSubview:_openOtherBtn];
     
 }
-- (void)setModel:(CJFileObjModel *)model
+- (void)setModel:(KsFileObjModel *)model
 {
     _model = model;
     NSArray *imageTypesArray = [NSArray arrayWithObjects: IMAGES_TYPES count: IMAGES_TYPES_COUNT];

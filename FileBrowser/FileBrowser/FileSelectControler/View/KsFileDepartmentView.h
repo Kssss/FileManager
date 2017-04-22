@@ -1,5 +1,5 @@
 //
-//  CJDepartmentView.h
+//  KsDepartmentView.h
 //  Antenna
 //
 //  Created by HHLY on 16/6/15.
@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol CJDepartmentViewDelegate <NSObject>
+@protocol KsDepartmentViewDelegate <NSObject>
 
 - (void)didScrollToIndex:(NSInteger)index;
 
 @end
 
 
-@interface VeFileDepartmentView : UIScrollView
+@interface KsFileDepartmentView : UIScrollView
 
 @property (strong, nonatomic) NSArray *departmentArr;
 
-@property (assign, nonatomic) id<CJDepartmentViewDelegate> cj_delegate;
+@property (assign, nonatomic) id<KsDepartmentViewDelegate> delegate;
 
 
 - (instancetype)initWithParts:(NSArray *)partArr;

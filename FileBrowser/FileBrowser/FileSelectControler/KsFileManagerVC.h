@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CJFileObjModel;
+@class KsFileObjModel;
 @protocol FileSelectVcDelegate <NSObject>
 @required
 //点击发送的事件
-- (void)fileViewControlerSelected:(NSArray <CJFileObjModel *> *)fileModels;
+- (void)fileViewControlerSelected:(NSArray <KsFileObjModel *> *)fileModels;
 @end
-@interface CJFileManagerVC : UIViewController
+@interface KsFileManagerVC : UIViewController
 @property (nonatomic,weak) id<FileSelectVcDelegate> fileSelectVcDelegate;
 @end
 

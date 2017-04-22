@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HSSessionModel.h"
+#import "KsSessionModel.h"
 
-@interface HSDownloadManager : NSObject
+@interface KsDownloadManager : NSObject
 
 /**
  *  单例

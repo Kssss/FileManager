@@ -75,7 +75,7 @@
     if (self) {
         self.departmentArr = partArr;
         self.showsHorizontalScrollIndicator = NO;
-        self.backgroundColor = [UIColor grayColor];
+        self.backgroundColor = [UIColor whiteColor];
         
         [self initializeSubviews];
     }

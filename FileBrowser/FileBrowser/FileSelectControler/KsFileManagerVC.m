@@ -21,6 +21,7 @@
 #import "KsFileDepartmentView.h"
 #import "KsFlieLookUpVC.h"
 #import "UIView+CJToast.h"
+#import "CFScreenSizeManager.h"
 
 CGFloat departmentH = 48;
 CGFloat toolBarHeight = 49;
@@ -71,12 +72,12 @@ CGFloat toolBarHeight = 49;
 - (UITableView *)tabvlew
 {
     if (_tabvlew == nil) {
-        CGRect frame = CGRectMake(0, departmentH + 10 + 64, CJScreenWidth, CJScreenHeight  - toolBarHeight - departmentH - 10);
+        CGRect frame = CGRectMake(0,[CFScreenSizeManager navigationBarHeight] + departmentH + 5, CJScreenWidth, CJScreenHeight  - toolBarHeight - departmentH - 10);
         _tabvlew = [[UITableView alloc]   initWithFrame:frame style:UITableViewStylePlain];
         _tabvlew.tableFooterView = [[UIView alloc] init];
         _tabvlew.delegate = self;
         _tabvlew.dataSource = self;
-        _tabvlew.bounces = NO;
+        _tabvlew.bounces = YES;
         [self.view addSubview:self.tabvlew];
         
     }
@@ -105,7 +106,7 @@ CGFloat toolBarHeight = 49;
 - (KsFileDepartmentView *)departmentView
 {
     if (_departmentView == nil) {
-        CGRect frame = CGRectMake(0, 64, CJScreenWidth, departmentH);
+        CGRect frame = CGRectMake(0, [CFScreenSizeManager navigationBarHeight], CJScreenWidth, departmentH);
         _departmentView = [[KsFileDepartmentView alloc] initWithParts:self.depatmentArray withFrame:frame];
         _departmentView.delegate = self;
         [self.view addSubview:_departmentView];

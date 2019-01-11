@@ -34,6 +34,7 @@
 		DE25F3171DC73EEC00ED790D /* angle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE25F3161DC73EEC00ED790D /* angle.jpg */; };
 		DE25F3191DC741A600ED790D /* IMG_4143.PNG in Resources */ = {isa = PBXBuildFile; fileRef = DE25F3181DC741A600ED790D /* IMG_4143.PNG */; };
 		DE25F31B1DC741F300ED790D /* he is a pirate.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DE25F31A1DC741F300ED790D /* he is a pirate.mp3 */; };
+		DEE82AFC21E893D000874157 /* CFScreenSizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE82AFA21E893CF00874157 /* CFScreenSizeManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,8 @@
 		DE25F3161DC73EEC00ED790D /* angle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = angle.jpg; sourceTree = "<group>"; };
 		DE25F3181DC741A600ED790D /* IMG_4143.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_4143.PNG; sourceTree = "<group>"; };
 		DE25F31A1DC741F300ED790D /* he is a pirate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "he is a pirate.mp3"; sourceTree = "<group>"; };
+		DEE82AFA21E893CF00874157 /* CFScreenSizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFScreenSizeManager.m; sourceTree = "<group>"; };
+		DEE82AFB21E893CF00874157 /* CFScreenSizeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFScreenSizeManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,8 @@
 		DE25F2D41DC73A7900ED790D /* FileSelectControler */ = {
 			isa = PBXGroup;
 			children = (
+				DEE82AFB21E893CF00874157 /* CFScreenSizeManager.h */,
+				DEE82AFA21E893CF00874157 /* CFScreenSizeManager.m */,
 				DE25F2D51DC73A7900ED790D /* KsFileManagerVC.h */,
 				DE25F2D61DC73A7900ED790D /* KsFileManagerVC.m */,
 				DE25F2D71DC73A7900ED790D /* KsFlieLookUpVC.h */,
@@ -286,7 +291,7 @@
 				TargetAttributes = {
 					DE25F2B21DC739A000ED790D = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = QDH66RGJXX;
+						DevelopmentTeam = K294UE6ZZL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -390,6 +395,7 @@
 				DE25F2FF1DC73A7900ED790D /* NSString+Hash.m in Sources */,
 				DE25F2FE1DC73A7900ED790D /* KsSessionModel.m in Sources */,
 				DE25F2F81DC73A7900ED790D /* KsFlieLookUpVC.m in Sources */,
+				DEE82AFC21E893D000874157 /* CFScreenSizeManager.m in Sources */,
 				DE25F3051DC73A7900ED790D /* KsUnOpenFileView.m in Sources */,
 				DE25F2FD1DC73A7900ED790D /* KsDownloadManager.m in Sources */,
 				DE25F3001DC73A7900ED790D /* UIImage+TYHSetting.m in Sources */,
@@ -518,10 +524,10 @@
 			baseConfigurationReference = AB6E5BBB78723C00ED9602AF /* Pods-FileBrowser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QDH66RGJXX;
+				DEVELOPMENT_TEAM = K294UE6ZZL;
 				INFOPLIST_FILE = FileBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hhly.FileBrowser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wlf.IDataVisibleBurialPointSDKTestDemoYY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -531,10 +537,10 @@
 			baseConfigurationReference = 4A5BE328E96301A7BE3CE8EF /* Pods-FileBrowser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QDH66RGJXX;
+				DEVELOPMENT_TEAM = K294UE6ZZL;
 				INFOPLIST_FILE = FileBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hhly.FileBrowser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wlf.IDataVisibleBurialPointSDKTestDemoYY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

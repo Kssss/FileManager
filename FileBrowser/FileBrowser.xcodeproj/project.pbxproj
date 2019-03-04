@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A90D97577162C84F8A619EE9 /* libPods-FileBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E3DF94E943DE674C701D02 /* libPods-FileBrowser.a */; };
+		DE07BC91222CDCEE0082F481 /* MyUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE07BC90222CDCEE0082F481 /* MyUIViewController.m */; };
 		DE25F2B81DC739A000ED790D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2B71DC739A000ED790D /* main.m */; };
 		DE25F2BB1DC739A000ED790D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE25F2BA1DC739A000ED790D /* AppDelegate.m */; };
 		DE25F2C11DC739A000ED790D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE25F2BF1DC739A000ED790D /* Main.storyboard */; };
@@ -41,6 +42,8 @@
 		06E3DF94E943DE674C701D02 /* libPods-FileBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FileBrowser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5BE328E96301A7BE3CE8EF /* Pods-FileBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FileBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-FileBrowser/Pods-FileBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		AB6E5BBB78723C00ED9602AF /* Pods-FileBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FileBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FileBrowser/Pods-FileBrowser.debug.xcconfig"; sourceTree = "<group>"; };
+		DE07BC8F222CDCEE0082F481 /* MyUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyUIViewController.h; sourceTree = "<group>"; };
+		DE07BC90222CDCEE0082F481 /* MyUIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyUIViewController.m; sourceTree = "<group>"; };
 		DE25F2B31DC739A000ED790D /* FileBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE25F2B71DC739A000ED790D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DE25F2B91DC739A000ED790D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				DE25F2D41DC73A7900ED790D /* FileSelectControler */,
 				DE25F2B91DC739A000ED790D /* AppDelegate.h */,
 				DE25F2BA1DC739A000ED790D /* AppDelegate.m */,
+				DE07BC8F222CDCEE0082F481 /* MyUIViewController.h */,
+				DE07BC90222CDCEE0082F481 /* MyUIViewController.m */,
 				DE25F2BF1DC739A000ED790D /* Main.storyboard */,
 				DE25F2C21DC739A000ED790D /* Assets.xcassets */,
 				DE25F2C41DC739A000ED790D /* LaunchScreen.storyboard */,
@@ -164,12 +169,12 @@
 		DE25F2D41DC73A7900ED790D /* FileSelectControler */ = {
 			isa = PBXGroup;
 			children = (
-				DEE82AFB21E893CF00874157 /* CFScreenSizeManager.h */,
-				DEE82AFA21E893CF00874157 /* CFScreenSizeManager.m */,
 				DE25F2D51DC73A7900ED790D /* KsFileManagerVC.h */,
 				DE25F2D61DC73A7900ED790D /* KsFileManagerVC.m */,
 				DE25F2D71DC73A7900ED790D /* KsFlieLookUpVC.h */,
 				DE25F2D81DC73A7900ED790D /* KsFlieLookUpVC.m */,
+				DEE82AFB21E893CF00874157 /* CFScreenSizeManager.h */,
+				DEE82AFA21E893CF00874157 /* CFScreenSizeManager.m */,
 				DE25F2D91DC73A7900ED790D /* Model */,
 				DE25F2DC1DC73A7900ED790D /* TestFile */,
 				DE25F2DF1DC73A7900ED790D /* Tools */,
@@ -395,6 +400,7 @@
 				DE25F2FF1DC73A7900ED790D /* NSString+Hash.m in Sources */,
 				DE25F2FE1DC73A7900ED790D /* KsSessionModel.m in Sources */,
 				DE25F2F81DC73A7900ED790D /* KsFlieLookUpVC.m in Sources */,
+				DE07BC91222CDCEE0082F481 /* MyUIViewController.m in Sources */,
 				DEE82AFC21E893D000874157 /* CFScreenSizeManager.m in Sources */,
 				DE25F3051DC73A7900ED790D /* KsUnOpenFileView.m in Sources */,
 				DE25F2FD1DC73A7900ED790D /* KsDownloadManager.m in Sources */,

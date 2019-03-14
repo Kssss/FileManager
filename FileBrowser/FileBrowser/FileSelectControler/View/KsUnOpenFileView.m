@@ -11,8 +11,7 @@
 #import "KsFileObjModel.h"
 #import "UIImage+TYHSetting.h"
 #import "UIColor+CJColorCategory.h"
-static const UInt8 IMAGES_TYPES_COUNT = 8;
-static const NSString *IMAGES_TYPES[IMAGES_TYPES_COUNT] = {@"png", @"PNG", @"jpg",@",JPG", @"jpeg", @"JPEG" ,@"gif", @"GIF"};
+
 
 #define color01a  [UIColor colorWithRed:0.004 green:0.651 blue:0.996 alpha:1.000]
 

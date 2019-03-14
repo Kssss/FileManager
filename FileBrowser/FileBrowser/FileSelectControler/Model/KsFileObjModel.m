@@ -8,8 +8,7 @@
 
 #import "KsFileObjModel.h"
 #import "UIImage+TYHSetting.h"
-static const UInt8 IMAGES_TYPES_COUNT = 8;
-static const NSString *IMAGES_TYPES[IMAGES_TYPES_COUNT] = {@"png", @"PNG", @"jpg",@",JPG", @"jpeg", @"JPEG" ,@"gif", @"GIF"};
+
 
 @implementation KsFileObjModel
 {

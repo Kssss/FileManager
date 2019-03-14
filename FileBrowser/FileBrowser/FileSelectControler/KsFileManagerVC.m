@@ -9,7 +9,7 @@
 //文件管理器默认管理的路径
 #define HomeFilePath [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"CJFileCache1"]
 
-//5MB
+//设置发送的文件的最大空间5MB
 #define FileMaxSize 5000000
 ///屏幕高度/宽度
 #define CJScreenWidth        [UIScreen mainScreen].bounds.size.width
@@ -46,10 +46,15 @@ CGFloat toolBarHeight = 49;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = (@"我的文件");
+    self.title = @"我的文件";
     self.view.backgroundColor = [UIColor whiteColor];
-    //关闭系统自动偏移64点
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    //关闭tabview自动偏移
+    if (@available(iOS 11.0, *)) {
+        self.tabvlew.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     //加载数据源
     [self loadData];
     //加载tabView
@@ -79,7 +84,6 @@ CGFloat toolBarHeight = 49;
         _tabvlew.dataSource = self;
         _tabvlew.bounces = YES;
         [self.view addSubview:self.tabvlew];
-        
     }
     return _tabvlew;
 }
@@ -205,10 +209,9 @@ CGFloat toolBarHeight = 49;
     switch (index) {
         case 0:
         {
-            NSLog(@"btn.tag%zd",index);
             self.dataSource = self.originFileArray.mutableCopy;
             [self.dataSource enumerateObjectsUsingBlock:^(KsFileObjModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSLog(@"obj----%zd",self.dataSource);
+
             }];
             [self.tabvlew reloadData];
             

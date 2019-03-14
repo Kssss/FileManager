@@ -10,7 +10,9 @@
 @class KsFileObjModel;
 @protocol FileSelectVcDelegate <NSObject>
 @required
-//点击发送的事件
+/*
+ 点击发送的事件
+ */
 - (void)fileViewControlerSelected:(NSArray <KsFileObjModel *> *)fileModels;
 @end
 @interface KsFileManagerVC : UIViewController

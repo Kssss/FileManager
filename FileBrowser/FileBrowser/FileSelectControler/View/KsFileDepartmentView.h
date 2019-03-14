@@ -19,7 +19,7 @@
 
 @property (strong, nonatomic) NSArray *departmentArr;
 
-@property (assign, nonatomic) id<KsDepartmentViewDelegate> delegate;
+@property (weak, nonatomic) id<KsDepartmentViewDelegate> departmentViewDelegate;
 
 
 - (instancetype)initWithParts:(NSArray *)partArr;

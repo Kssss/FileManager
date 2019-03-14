@@ -137,8 +137,8 @@
 #pragma mark - Actions
 - (void)clickDepartmentButton:(UIButton *)sender {
     self.selectedIndex = sender.tag - 100;
-    if ([self.delegate respondsToSelector:@selector(didScrollToIndex:)]) {
-        [self.delegate didScrollToIndex:self.selectedIndex];
+    if ([self.departmentViewDelegate respondsToSelector:@selector(didScrollToIndex:)]) {
+        [self.departmentViewDelegate didScrollToIndex:self.selectedIndex];
     }
 }
 
